@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>关于参加第一次学术会议-CTC的总结与感悟</title>
+    <link href="/2020/08/23/%E5%85%B3%E4%BA%8E%E5%8F%82%E5%8A%A0%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%AD%A6%E6%9C%AF%E4%BC%9A%E8%AE%AE-CTC%E7%9A%84%E6%80%BB%E7%BB%93%E4%B8%8E%E6%84%9F%E6%82%9F/"/>
+    <url>/2020/08/23/%E5%85%B3%E4%BA%8E%E5%8F%82%E5%8A%A0%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%AD%A6%E6%9C%AF%E4%BC%9A%E8%AE%AE-CTC%E7%9A%84%E6%80%BB%E7%BB%93%E4%B8%8E%E6%84%9F%E6%82%9F/</url>
+    
+    <content type="html"><![CDATA[<h3 id="关于第一次参加学术会议-CTC的总结与感悟"><a href="#关于第一次参加学术会议-CTC的总结与感悟" class="headerlink" title="关于第一次参加学术会议-CTC的总结与感悟"></a>关于第一次参加学术会议-CTC的总结与感悟</h3><p>CTC-中国测试学术会议<br><img src="/2020/08/23/关于参加第一次学术会议-CTC的总结与感悟/大会邀请函封面.png" srcset="/img/loading.gif" alt="会议"><br><a id="more"></a></p><h2 id="大会介绍"><a href="#大会介绍" class="headerlink" title="大会介绍"></a>大会介绍</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>CTC2020是2020年的CCF容错专委年会-中国测试学术会议，主要报告集中与容错、存算一体、测试与验证、软件安全测试、人工智能、近似计算、可重构系统和软硬件协同设计方面。由于我的主要研究方向是忆阻器的逻辑设计，属于存算一体方面，同时，两位师兄也在这次会议之中投了稿，所以，导师要求去参加，也算是读研期间第一次参加学术会议，虽然因为疫情原因，是以线上的形式，但也是收获满满。</p><h3 id="大会日程"><a href="#大会日程" class="headerlink" title="大会日程"></a>大会日程</h3><p>下面这个图是大会的日程，本人主要关注的是存算一体芯片和软硬件协同设计论坛。<br><img src="/2020/08/23/关于参加第一次学术会议-CTC的总结与感悟/会议日程.png" srcset="/img/loading.gif" alt="会议"></p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>第一次参加学术会议，也是才知道学术会议都是几个论坛共同进行，由自己选择性听取自己感兴趣的内容。我的话，主要是前期听了论文的session和一些业界大佬的报告，后期主要是听取了存算一体芯片论坛以及武老师的报告（虽然没听懂）糗。但是收获还是满满的，主要总结为以下几点：<br>1.发现大佬们看问题的角度和我看待问题的角度不一样，大佬们永远是先从更广的角度发现问题，再逐步细化解决问题，这是值得借鉴的一点。<br>2.大佬们讲报告的方式和我的也不一样，大佬们的PPT很少文字，基本都是图片，用图片进行扩展，在讲PPT是也是以研究背景-拟研究问题-研究内容-实验结果-总结的形式呈现。而且大佬们对细节方面的描述较少，大都以宏观的角度进行讲解，当然这里不排除是时间限制的原因。<br>3.发现大佬们的知识点比较广，无论是自己的领域还是其他领域都有所涉及。在自己的领域也是在一些方向学精之后，进行本领域的其他应用扩展，他们的知识仿佛很牢靠。<br>4.大佬们即使是不同领域的报告也会去听，正如武老师所说的，即使是数学系还是算法系在硬件方面也是有用武之地的，知识都是相通的。</p><h3 id="启发"><a href="#启发" class="headerlink" title="启发"></a>启发</h3><p>1.要学会发现问题，其实每一篇论文都有可攻击的点，只是你没发现罢了。<br>2.改变讲报告的方式，一个是尽可能减少文字的出现，尽可能以图片的形式，文字可以放到草稿里面；另外讲大型报告的时候，一定要总结！！！<br>3.还是要多读论文，量变产生质变，自己现在虽然读了一些论文，但是还没有到火候，和大佬们看问题的角度还是不同，坚持读论文！！！<br>4.要抱有求知的精神，吸取的知识越多越有底气和idea，像大佬学习。<br>5.要学会关注行业前沿动态，包括学术和产业化方面，只有了解了产业化的需求才知道做什么研究点更有价值。<br>最后争取在研二期间发出一篇论文，发出一篇论文之后才会更加有动力，加油！</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>memoristor</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>conference</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SPU in STT-MRAM</title>
+    <link href="/2020/03/28/SPU-in-STT-MRAM/"/>
+    <url>/2020/03/28/SPU-in-STT-MRAM/</url>
+    
+    <content type="html"><![CDATA[<h2 id="SPU-in-STT-MRAM"><a href="#SPU-in-STT-MRAM" class="headerlink" title="SPU in STT-MRAM"></a>SPU in STT-MRAM</h2><p>一个新的结构（1T1MTJ）用于形成SPU</p><h3 id="Spintronic-Processing-Unit-in-Spin-Transfer-Torque-Magnetic-Random-Access-Memory"><a href="#Spintronic-Processing-Unit-in-Spin-Transfer-Torque-Magnetic-Random-Access-Memory" class="headerlink" title="Spintronic Processing Unit in Spin Transfer Torque Magnetic Random Access Memory"></a>Spintronic Processing Unit in Spin Transfer Torque Magnetic Random Access Memory</h3><p>He Zhang , Wang Kang , Member, IEEE, Kaihua Cao, Bi Wu , Youguang Zhang, Member,IEEE,and Weisheng Zhao , Fellow, IEEE<br>2017<br><a id="more"></a></p><h3 id="SPU-in-STT-MRAM-1"><a href="#SPU-in-STT-MRAM-1" class="headerlink" title="SPU in STT-MRAM"></a>SPU in STT-MRAM</h3><p><img src="/2020/03/28/SPU-in-STT-MRAM/2.png" srcset="/img/loading.gif" alt="image"><br>本文是基于一个1T1MTJ结构，结构图和真值表如图所示：<br><img src="/2020/03/28/SPU-in-STT-MRAM/1.png" srcset="/img/loading.gif" alt="image"><br>该结构用的是1个晶体管，一个MTJ实现的，并且三个输入分别是A=WL，B=MTJ的现态，C=VBL-VWL，<br>输出是MTJ的次态。用状态方程表示就是：<br><img src="/2020/03/28/SPU-in-STT-MRAM/6.png" srcset="/img/loading.gif" alt="image"><br>用这个状态方程可以实现所有的逻辑函数，只需要控制C的状态即可，也就是说A和B其实是输入变量，而C是控制变量，控制函数的功能，例如当C=0的时候，实现了相与的功能，而C=1的时候，则实现了A+Bi，也就是或，如果C=Bi的反的话，就能实现异或功能。<br>这种结构在crossbar array中的实现如图所示：<br><img src="/2020/03/28/SPU-in-STT-MRAM/3.png" srcset="/img/loading.gif" alt="image"><br>需要注意的是，这里是存在一个功能控制的，如果当A=’ON’的时候，整个crossbar其实是一个存储数据的功能块，此时只能执行逻辑值的输入并且保存。相反，如果A当成一个逻辑输入的话，C控制相应的逻辑函数，那么输入A和B就会实现相应的逻辑函数功能，也就是前面所说的功能。<br>另外，可以将整个crossbar array进行分块，那么就可以并行执行，在不同的块内并行执行相应的逻辑功能。将大幅度提升执行的效率。<br>下图是用该结构实现的一位加法器：<br>其中有三个寄存器和三个memory cell。“LOG”代表的是一个写指令，将前面两个寄存器或者数值写入第三个所指示的地址内。<br><img src="/2020/03/28/SPU-in-STT-MRAM/4.png" srcset="/img/loading.gif" alt="image"><br>最后，实现的是SPU结构，它是一种与CPU略微有点不同的结构，不同之处在于，从存储器中读取指令，并由CPU的控制单元解析为微指令后，会根据它是计算密集型还是存取密集型应用来分开操作，如果是计算密集型，那么直接按照CPU的方式计算即可，如果是存取密集型的话，那么就交由存储器的控制单元来按照前面的方式实现读写指令转换，通过这些操作来实现PIM操作。<br><img src="/2020/03/28/SPU-in-STT-MRAM/5.png" srcset="/img/loading.gif" alt="image"><br>总结：<br>在典型的基于1T1MTJ的STT-MRAM中提出了一个高效且可重新配置的PIM平台SPU。拟议的SPU利用最细粒度的存储单元通过常规的类似存储器的写和读操作以最小的修改来执行逻辑计算任务。混合CMOS / MTJ电路仿真验证了所提出设计的功能和性能。可以说，本文是PIM范式的自然演变，它朝着更细粒度和高度并行的结构发展。由于STT-MRAM最近已经商品化，SPU有望成为实用的PIM平台。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>memoristor</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>memoristor</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>相关命令</title>
+    <link href="/2020/03/28/%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/"/>
+    <url>/2020/03/28/%E7%9B%B8%E5%85%B3%E5%91%BD%E4%BB%A4/</url>
+    
+    <content type="html"><![CDATA[<p>相关命令<br>相关的常用hexo命令集<br><a id="more"></a><br><img src="/2020/03/28/相关命令/1.png" srcset="/img/loading.gif" alt="Git"><br><img src="/2020/03/28/相关命令/2.jpg" srcset="/img/loading.gif" alt="Git"></p><p>##相关命令：<br>这篇文章主要是开启博客的书写历程，并记录一下相关博文的命令行<br>在hexo所在目录下，打开terminal，在命令行输入：<br><pre><code class="hljs undefined">hexo new ahexo new draft b#草稿文件hexo<span class="hljs-built_in"> server </span>--draft#预览草稿文件hexo publish b#发布草稿文件</code></pre></p><p>相关发布命令</p><pre><code>hexo g#生成静态文件hexo s -p 5000#启动服务器在5000端口，默认4000hexo d#hexo deploy 发布到github</code></pre><p>a是文章标题，也可以加上双引号,如“a”。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>hexo</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>python3-进制转换及zfill函数和列表倒置的特殊方法</title>
+    <link href="/2019/08/10/python3-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E5%8F%8Azfill%E5%87%BD%E6%95%B0%E5%92%8C%E5%88%97%E8%A1%A8%E5%80%92%E7%BD%AE%E7%9A%84%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/"/>
+    <url>/2019/08/10/python3-%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E5%8F%8Azfill%E5%87%BD%E6%95%B0%E5%92%8C%E5%88%97%E8%A1%A8%E5%80%92%E7%BD%AE%E7%9A%84%E7%89%B9%E6%AE%8A%E6%96%B9%E6%B3%95/</url>
+    
+    <content type="html"><![CDATA[<p>进制转换的问题：<br>主要用到的函数有：bin(),oct(),int(),hex()<br><a id="more"></a></p><p>#其他进制转成十进制：</p><p>#二进制转成十进制：<br><pre><code class="hljs undefined"><span class="hljs-keyword">int</span>(<span class="hljs-string">'100'</span>,<span class="hljs-number">2</span>)<span class="hljs-meta">#结果为：4</span><span class="hljs-meta">#注意输入的数值一定要是字符串的形式，第二个参数表示输入数值为二进制</span></code></pre></p><p>#八进制转成十进制：<br><pre><code class="hljs undefined"><span class="hljs-keyword">int</span>(<span class="hljs-string">'04'</span>,<span class="hljs-number">8</span>)<span class="hljs-meta">#结果为：4</span><span class="hljs-meta">#注意输入的数值一定要是字符串的形式，第二个参数表示输入数值为八进制</span></code></pre></p><p>#十六进制转成十进制：<br><pre><code class="hljs undefined"><span class="hljs-keyword">int</span>(<span class="hljs-string">'0x4'</span>,<span class="hljs-number">16</span>)<span class="hljs-meta">#结果为：4</span><span class="hljs-meta">#注意输入的数值一定要是字符串的形式，第二个参数表示输入数值为十六进制</span></code></pre></p><p>#十进制转成二进制：<br><pre><code class="hljs undefined">bin(int('<span class="hljs-number">4</span>',<span class="hljs-number">10</span>))#或者bin(<span class="hljs-number">4</span>)#结果为：<span class="hljs-number">0b100</span>#<span class="hljs-number">0b</span>表示二进制，如果想要截取，可以用[<span class="hljs-number">2</span>:]</code></pre></p><p>#十进制转成八进制：<br><pre><code class="hljs undefined">oct(<span class="hljs-keyword">int</span>(<span class="hljs-string">'4'</span>,<span class="hljs-number">10</span>))<span class="hljs-meta">#或者</span>oct(<span class="hljs-number">4</span>)<span class="hljs-meta">#结果为：04</span><span class="hljs-meta">#0表示八进制</span></code></pre></p><p>#十进制转成十六进制：<br><pre><code class="hljs undefined">hex(<span class="hljs-keyword">int</span>(<span class="hljs-string">'4'</span>,<span class="hljs-number">10</span>))<span class="hljs-meta">#或者</span>hex(<span class="hljs-number">4</span>)<span class="hljs-meta">#结果为：0x4</span><span class="hljs-meta">#0x表示十六进制</span></code></pre></p><p>#zfill函数：<br>str.zfill(width)<br>字符串扩展函数。width为扩展的宽度,扩张之后字符串右对齐，左侧填充0,和rjust(width,’0’)相似<br><pre><code class="hljs undefined"><span class="hljs-string">"123"</span>.zfill(<span class="hljs-number">5</span>)#结果为：<span class="hljs-number">00123</span>        <span class="hljs-string">"123"</span>.rjust(<span class="hljs-number">5</span>,'<span class="hljs-number">2</span>'))#结果为：<span class="hljs-number">22123</span>  <span class="hljs-string">"123"</span>.ljust(<span class="hljs-number">5</span>,'<span class="hljs-number">2</span>'))#结果为：<span class="hljs-number">12322</span></code></pre></p><p>#列表逆置特殊方法：<br><pre><code class="hljs undefined"><span class="hljs-keyword">list</span>=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]<span class="hljs-keyword">print</span>(<span class="hljs-keyword">list</span>[::<span class="hljs-number">-1</span>])<span class="hljs-comment">#输出[5,4,3,2,1],表示所有列表元素逆置</span><span class="hljs-keyword">print</span>(<span class="hljs-keyword">list</span>[<span class="hljs-number">4</span>:<span class="hljs-number">2</span>:<span class="hljs-number">-1</span>])<span class="hljs-comment">#输出[5,4],表示从下标为4到2(不包括2)的元素逆置</span></code></pre></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>旋转数组</title>
+    <link href="/2019/08/07/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/"/>
+    <url>/2019/08/07/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84/</url>
+    
+    <content type="html"><![CDATA[<p>#leetcode题目：旋转数组<br>题目描述：<br>给定一个数组，例如[1,2,3,4,5,6,7]，同时给定一个K值，表示数组的向右旋转程度，例如当k等于3时，旋转一次为：[7,1,2,3,4,5,6],旋转第二次为：[6,7,1,2,3,4,5],第三次也就是结果输出为：[5,6,7,1,2,3,4]。<br><a id="more"></a><br><img src="/2019/08/07/旋转数组/img.png" srcset="/img/loading.gif" alt="image"></p><p>##解法一：暴力解法<br>双重循环将数组内的元素进行移位：先将数组最左边的元素取出来，然后其他元素右移，再将取出来的元素放置在数组的第一个位置，循环K次即可。<br><pre><code class="hljs undefined"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rotate</span><span class="hljs-params">(self, nums: List[int], k: int)</span> -&gt; <span class="hljs-keyword">None</span>:</span>        <span class="hljs-string">"""        Do not return anything, modify nums in-place instead.        """</span>        i = len(nums);        t = i<span class="hljs-number">-2</span>;        <span class="hljs-keyword">while</span>(k&gt;<span class="hljs-number">0</span>):            temp = nums[i<span class="hljs-number">-1</span>];            <span class="hljs-keyword">while</span>(t&gt;=<span class="hljs-number">0</span>):                nums[t+<span class="hljs-number">1</span>]=nums[t];                t-=<span class="hljs-number">1</span>;            nums[<span class="hljs-number">0</span>]=temp;            t=i<span class="hljs-number">-2</span>;            k-=<span class="hljs-number">1</span>;</code></pre></p><p>时间复杂度：O(NK)<br>空间复杂度：O(1)</p><p>##解法二：利用数组存储<br>将数组中的后K位取出来，存储在另外一个数组中，再将新数组的元素逐个插入原数组的前面位置即可：<br><pre><code class="hljs undefined"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rotate</span><span class="hljs-params">(self, nums: List[int], k: int)</span> -&gt; <span class="hljs-keyword">None</span>:</span>        <span class="hljs-string">"""        Do not return anything, modify nums in-place instead.        """</span>             i=<span class="hljs-number">0</span>        tempNums=[];        <span class="hljs-keyword">for</span> each <span class="hljs-keyword">in</span> nums[len(nums)-k:len(nums)]:            tempNums.append(each);            nums.pop();        <span class="hljs-keyword">for</span> each <span class="hljs-keyword">in</span> tempNums:            nums.insert(i,each);            i+=<span class="hljs-number">1</span>;</code></pre></p><p>时间复杂度：O(N)<br>空间复杂度：O(N)</p><p>##解法三：将数组逆置<br>例如：1234567-&gt;7654321-&gt;5671234即可<br>时间复杂度：O(N)<br>空间复杂度：O(1)</p><p>##解法四：利用队列的性质<br>将数值的后K个(队尾)依次取出，再依次添加到队头<br><pre><code class="hljs undefined"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rotate</span><span class="hljs-params">(self, nums: List[int], k: int)</span> -&gt; <span class="hljs-keyword">None</span>:</span>        <span class="hljs-string">"""        Do not return anything, modify nums in-place instead.        """</span>           k=k%len(nums);        i=<span class="hljs-number">0</span>;        <span class="hljs-keyword">while</span>(i&lt;len(nums)-k):            nums.append(nums.pop(<span class="hljs-number">0</span>));            i+=<span class="hljs-number">1</span>;</code></pre></p><p>时间复杂度：O(N)<br>空间复杂度：O(1)</p><p>##解法五：环状替换<br>这是比较难理解的一个方法，首先，如果我们用之前的元素直接去替换它所应该最终在的位置上的元素（原位置+K%N就是它最终应该所在的位置），必然导致元素的丢失，所以，需要用一个变量(temp)先保存起来被替换的元素，继续这个过程N次即可，因为每个元素都要换位置，所以需要这个过程N次。但是有一个问题会出现，当N%K==0的时候，其中K=K%N(如果K&gt;N,实际上还是相当于K%N,因为移动N+1个位置就相当于移动1个位置)循环替换多次后，一定会产生再次回到最初开始的位置上的问题，程序就进入死循环。此时，我们需要做的是将从一开始的元素的下一个元素开始继续这个过程。<br>详细的说就是一开始从i=0开始替换，并且保存每次被替换的元素，便于下次替换时候用上次被替换的元素去替换它应该替换的元素。i=0所在的元素替换i+k%N所在的元素，并且再次保存被替换的元素的值，此时替换的都是i%K==0的元素，并且因为每隔K替换一次，所以已经有N/K个元素确定位置了，当回到最初开始的元素时，就从开始的元素的下一个继续进行这个过程，此时就是i%k==1的元素在进行替换工作了，直到回到i%k==0的元素位置上，此时i==k,那么一共确定位置的就有k乘以N/K个元素了，刚刚好N个元素，所有位置都在指定的位置上。<br>过程如下，红线表示第一个阶段，i%k==0，绿线表示第二个阶段，i%k==1，两个阶段，每隔阶段(N=6/K=2)=3，2乘以3=6.所有元素归位<br><img src="/2019/08/07/旋转数组/image.png" srcset="/img/loading.gif" alt="image"><br>代码如下：<br><pre><code class="hljs undefined">class Solution:    def rotate(self, nums: List[int], k: int) -&gt; None:        <span class="hljs-built_in">count</span>=<span class="hljs-number">0</span>        staIndex=<span class="hljs-number">0</span><span class="hljs-comment">;#起点</span>        while(<span class="hljs-built_in">count</span>&lt;len(nums)):            preValue=nums[staIndex]<span class="hljs-comment">;#预先值，即是将要放入确定位置的值</span>            curIndex=(staIndex+k)%len(nums)<span class="hljs-comment">;#当前可能需要被替换的值</span>            while(staIndex!=curIndex):<span class="hljs-comment">#没有回到最初位置就继续循环</span>                temp=nums.pop(curIndex)<span class="hljs-comment">;#插入</span>                nums.<span class="hljs-keyword">insert(curIndex,preValue);</span>                preValue=temp<span class="hljs-comment">;#更新数值</span>                <span class="hljs-built_in">count</span>+=<span class="hljs-number">1</span><span class="hljs-comment">;</span>                curIndex=(curIndex+k)%len(nums)<span class="hljs-comment">;</span>            nums.pop(curIndex)<span class="hljs-comment">;#插入本阶段最后数值后继续下一个阶段直到count=len（nums）即是所有数都放置在最终位置</span>            nums.<span class="hljs-keyword">insert(curIndex,preValue);</span>            <span class="hljs-built_in">count</span>+=<span class="hljs-number">1</span><span class="hljs-comment">;</span>            staIndex+=<span class="hljs-number">1</span><span class="hljs-comment">;</span></code></pre></p><p>时间复杂度：O(N)<br>空间复杂度：O(1)</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>leetcode</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>md文件插入图片的问题</title>
+    <link href="/2019/08/07/md%E6%96%87%E4%BB%B6%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <url>/2019/08/07/md%E6%96%87%E4%BB%B6%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    
+    <content type="html"><![CDATA[<p>在markdown文件中插入图片格式如下：<br><code>![avatar](url)</code><br>其中：</p><p>avatar是在图片加载失败的情况下显示的文本信息<br>url是你图片的地址，一般采取相对地址，同级目录下的图片地址</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>hexo</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>hexo加GitHub上传图片的问题解决</title>
+    <link href="/2019/08/07/hexo%E5%8A%A0GitHub%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    <url>/2019/08/07/hexo%E5%8A%A0GitHub%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
+    
+    <content type="html"><![CDATA[<p>hexo 搭建博客上传图片问题<br><a id="more"></a><br>1、cd到博客等根目录下 查看_config.yml文件 查找 post_asset_folder 字段确定post_asset_folder 设置为true -&gt; post_asset_folder:true<br>2、当您设置 post_asset_folder  参数后，在建立文件时，Hexo 会自动建立一个与文章同名的文件夹，您可以把与该文章相关的所有资源都放到那个文件夹，这样你就可以更方便的使用资源。<br>3、在博客的根目录执行 npm install <a href="https://github.com/CodeFalling/hexo-asset-image" target="_blank" rel="noopener">https://github.com/CodeFalling/hexo-asset-image</a> –save 命令来进行插件的安装。<br>4、然后创建一文章 hexo new “test” 然后查看博客的 ../source/_posts 目录下的文件，会看到存在一个test 文件夹 和 test.md 文件<br>5、将所需要的图片资源放到test 文件夹 内 目录结构如下：<br>6、书写文章使用test文件内 的图片<br>7、使用hexo s 命令运行本地博客如图<br>8、使用hexo clean hexo g hexo deploy 将本地博客推送到远程。<br>引用:<br>作者：iOS收藏家<br>链接：<a href="https://www.jianshu.com/p/5f75a74b0f5e" target="_blank" rel="noopener">https://www.jianshu.com/p/5f75a74b0f5e</a><br>来源：简书<br>简书著作权归作者所有，任何形式的转载都请联系作者获得授权并注明出处。</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>lite主题相关内容</title>
+    <link href="/2019/08/07/lite%E4%B8%BB%E9%A2%98%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/"/>
+    <url>/2019/08/07/lite%E4%B8%BB%E9%A2%98%E7%9B%B8%E5%85%B3%E5%86%85%E5%AE%B9/</url>
+    
+    <content type="html"><![CDATA[<p>Get Started &amp; Install<br><a id="more"></a><br><img src="/2019/08/07/lite主题相关内容/preview2.jpg" srcset="/img/loading.gif" alt="image"></p><p>1.Enter to the Hexo root directory. The root directory must include themes, node_modules, source and so on.<br>首先进入Hexo根目录，请确保这个目录下有themes, node_modules, source等文件。</p><p>cd my-hexo<br>ls</p><h1 id="output"><a href="#output" class="headerlink" title="output:"></a>output:</h1><h1 id="config-yml-node-modules-package-json-public-scaffolds-source-themes"><a href="#config-yml-node-modules-package-json-public-scaffolds-source-themes" class="headerlink" title="_config.yml  node_modules  package.json  public  scaffolds  source  themes"></a>_config.yml  node_modules  package.json  public  scaffolds  source  themes</h1><p>2.Download the latest release by using git clone<br>使用git clone命令下载最新的发布版本</p><p>git clone <a href="https://github.com/HeskeyBaozi/hexo-theme-lite" target="_blank" rel="noopener">https://github.com/HeskeyBaozi/hexo-theme-lite</a> themes/lite<br>after git clone, the result is like this:</p><p>使用命令后，结果看起来会是这样</p><p><img src="/2019/08/07/lite主题相关内容/depre.png" srcset="/img/loading.gif" alt="depre"></p><p>3.Edit the __config.yml in your root directory.<br>modify the field theme into lite.</p><p>打开根目录的__config.yml文件，将theme字段设为lite</p><h1 id="Extensions"><a href="#Extensions" class="headerlink" title="Extensions"></a>Extensions</h1><p>theme: lite<br>4.Generate static files<br>hexo g<br>5.Run Hexo server<br>hexo s</p><h1 id="output-1"><a href="#output-1" class="headerlink" title="output:"></a>output:</h1><h1 id="INFO-Hexo-is-running-at-http-localhost-4000-Press-Ctrl-C-to-stop"><a href="#INFO-Hexo-is-running-at-http-localhost-4000-Press-Ctrl-C-to-stop" class="headerlink" title="INFO  Hexo is running at http://localhost:4000/. Press Ctrl+C to stop."></a>INFO  Hexo is running at <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>. Press Ctrl+C to stop.</h1><p>Enter your localhost link to preview the blog.<br>Features<br>Edit the file lite/__config.yml to customize your theme.</p><p>编辑文件lite/__config.yml来自定义你的主题.</p><p>Custom many things<br>avatar | 头像<br>avatar:<br>  enable: true<br>  url: /static/images/kamuyi.jpg # mapping to ‘<blog root>/source/static/images/kamuyi.jpg’<br>As usual, / is mapped to your <blog root>/source, not the static folder in the theme. 通常这个路径指的是你博客根目录下的/source文件夹，而不是主题中的static文件夹</blog></blog></p><p>theme filter blur | 主题模糊滤镜设置<br>you can set the gaussian radius here.</p><p>你可以在这里设置高斯模糊半径，效果如下.</p><p><img src="/2019/08/07/lite主题相关内容/gr.png" srcset="/img/loading.gif" alt="gr"></p><p>blur:<br>  background_color: ‘#ffffff’</p><h1 id="‘true’-corresponding-to-css-style-‘overflow-hidden’"><a href="#‘true’-corresponding-to-css-style-‘overflow-hidden’" class="headerlink" title="‘true’ corresponding to css style ‘overflow: hidden’"></a>‘true’ corresponding to css style ‘overflow: hidden’</h1><h1 id="设置为’true’则对应模糊容器’overflow’选项"><a href="#设置为’true’则对应模糊容器’overflow’选项" class="headerlink" title="设置为’true’则对应模糊容器’overflow’选项"></a>设置为’true’则对应模糊容器’overflow’选项</h1><p>  hide_overflow: true</p><h1 id="Alpha-Value-of-the-background-color"><a href="#Alpha-Value-of-the-background-color" class="headerlink" title="Alpha Value of the background color"></a>Alpha Value of the background color</h1><h1 id="背景颜色透明值-启用会导致高斯模糊失效"><a href="#背景颜色透明值-启用会导致高斯模糊失效" class="headerlink" title="背景颜色透明值, 启用会导致高斯模糊失效"></a>背景颜色透明值, 启用会导致高斯模糊失效</h1><p>  opacity:<br>    enable: false # switch to ‘true’ will make the gaussian blur lose efficacy<br>    opacity_value: 0.4</p><p>  gaussian_radius: # 高斯模糊程度，数值越大越模糊<br>    top_navigator: 50 # 40+ preferred<br>    header: 30 # 5 ~ 50 preferred<br>    footer: 40 # 5 ~ 100 preferred</p><p>  font:<br>    color: ‘#ffffff’<br>Notice that the font.color will only affect the font color in the blur area.</p><p>注意，这里的font.color只会影响模糊区域的字体颜色.</p><p>background picture | 背景图片<br>background:<br>  background_color: ‘#ffffff’</p><h1 id="Custom-Background-Picture"><a href="#Custom-Background-Picture" class="headerlink" title="Custom Background Picture"></a>Custom Background Picture</h1><p>  enable_picture: true<br>  url: /static/images/miku.jpg<br>  css_size: cover<br>  css_position: 50%</p><h1 id="Gradient-color"><a href="#Gradient-color" class="headerlink" title="Gradient color"></a>Gradient color</h1><p>  gradient_color:<br>    enable: false # switch to ‘true’ will make custom background picture lose efficacy<br>    css_value: ‘linear-gradient(to right, rgb(74, 135, 193), rgb(179, 177, 251))’<br>Note that we can use the gradient color, it works by modify the css background-image, so it will make the custom background picture lose efficacy.</p><p>注意到这里可以设置渐变色背景，实际上内部实现就是修改了css的background-image，所以启用渐变色会让自定义背景图片失效。</p><p>Example:</p><p><img src="/2019/08/07/lite主题相关内容/linear3.png" srcset="/img/loading.gif" alt="image"></p><p>background:<br>  gradient_color:<br>    enable: true<br>    css_value: ‘linear-gradient(to right, rgb(74, 135, 193), rgb(179, 177, 251))’ # options</p><p>blur:<br>  opacity:<br>    enable: true # switch to ‘true’ will make the gaussian blur lose efficacy<br>    opacity_value: 0.4<br>Post Excerpt | 文章摘要<br>insert <!-- more --> in your raw markdown post. Example. 在你的文章markdown中插入<!-- more -->来进行手动截断. 例子.</p><p>top menu item | 顶部导航菜单项目设置<br>menu:</p><h1 id="Basic-Menu"><a href="#Basic-Menu" class="headerlink" title="Basic Menu"></a>Basic Menu</h1><p>  Home: true<br>  Archives: true<br>  Categories: false<br>  Tags: false</p><h1 id="Custom-Menu"><a href="#Custom-Menu" class="headerlink" title="Custom Menu"></a>Custom Menu</h1><h1 id="‘About’-link-to-the-‘About’-page-if-there-exists-‘-about-index-md’-in-your-‘source’-dir"><a href="#‘About’-link-to-the-‘About’-page-if-there-exists-‘-about-index-md’-in-your-‘source’-dir" class="headerlink" title="‘About’ link to the ‘About’ page if there exists ‘/about/index.md’ in your ‘source’ dir."></a>‘About’ link to the ‘About’ page if there exists ‘/about/index.md’ in your ‘source’ dir.</h1><h1 id="这里是一个导航到’关于我’的页面，前提是你需要在你的’source’文件夹有’-about-index-md’文件"><a href="#这里是一个导航到’关于我’的页面，前提是你需要在你的’source’文件夹有’-about-index-md’文件" class="headerlink" title="这里是一个导航到’关于我’的页面，前提是你需要在你的’source’文件夹有’/about/index.md’文件"></a>这里是一个导航到’关于我’的页面，前提是你需要在你的’source’文件夹有’/about/index.md’文件</h1><p>  About: /pages/about/index<br>theme layout | 主题布局设置<br>theme_layout:<br>  dependent_footer: true<br>dependent_footer means that the main body is closely connected with the footer. Setting false will make the footer “full background, padded content”.</p><p>dependent_footer 表明主题的底部信息栏是连在一起的，如果设置为false，底部信息栏将会有”满幅的背景，定宽的内容”</p><p>social links | 社交链接<br>social:<br>  github: <a href="https://github.com/heskeybaozi" target="_blank" rel="noopener">https://github.com/heskeybaozi</a><br>  weibo: <a href="http://weibo.com/52hezhiyu" target="_blank" rel="noopener">http://weibo.com/52hezhiyu</a></p><h1 id="Email-link"><a href="#Email-link" class="headerlink" title="Email link"></a>Email link</h1><p>  email: mailto:<a href="mailto:hezhiyu233@foxmail.com" target="_blank" rel="noopener">hezhiyu233@foxmail.com</a></p><p>social_icons:<br>  enable: true</p><h1 id="icon-name-docs-http-fontawesome-io-icons"><a href="#icon-name-docs-http-fontawesome-io-icons" class="headerlink" title="icon name docs: http://fontawesome.io/icons/"></a>icon name docs: <a href="http://fontawesome.io/icons/" target="_blank" rel="noopener">http://fontawesome.io/icons/</a></h1><p>  github: fa-github-alt<br>  weibo: fa-weibo<br>  email: fa-envelope<br>  wechat: fa-weixin<br>  qq: fa-qq<br>powered by<br>powered_by:<br>  text:  Hexo Theme Lite<br>  url:  <a href="https://github.com/HeskeyBaozi/hexo-theme-lite/" target="_blank" rel="noopener">https://github.com/HeskeyBaozi/hexo-theme-lite/</a> # or false to disable link<br>favicon | 网站图标<br><img src="/2019/08/07/lite主题相关内容/icon.png" srcset="/img/loading.gif" alt="icon"></p><p>you can use your own .ico file (32px * 32px preferred) to replace the original favicon.ico under the directory /themes/lite/source/static/.</p><p>你可以用你自己的图标文件，最好是32px * 32px大小，来替换目录/themes/lite/source/static/下的favicon.ico文件。</p><p><img src="/2019/08/07/lite主题相关内容/replace.png" srcset="/img/loading.gif" alt="replace"></p><p>page 404 | 404 页面<br>page_404:</p><h1 id="enable-to-use-custom-404-page"><a href="#enable-to-use-custom-404-page" class="headerlink" title="enable to use custom 404 page"></a>enable to use custom 404 page</h1><p>  enable: false</p><h1 id="filename-of-md-file-path-in-your-source-dir"><a href="#filename-of-md-file-path-in-your-source-dir" class="headerlink" title="filename of .md file path in your source dir"></a>filename of .md file path in your source dir</h1><p>  source_path: 404/index.md<br>Cool features<br>Comments | 评论系统<br>We use Gitment for the comments system.</p><p>What’s Gitment ?</p><p>Gitment is a comment system based on GitHub Issues, which can be used in the frontend without any server-side implementation.</p><p>Gitment 是一个使用Github Issues页面来存储评论的无‘服务端’评论系统</p><p>Click here to register an OAuth application, and you will get a client id and a client secret. Make sure the callback URL is right. Generally it’s the origin of your site, like <a href="https://heskeybaozi.github.io/" target="_blank" rel="noopener">https://heskeybaozi.github.io/</a>.</p><p>点击这里创建Github OAuth应用, 你就会得到client id和client secret。一定要确保回调url返回到你的主域名, 例如<a href="https://heskeybaozi.github.io/" target="_blank" rel="noopener">https://heskeybaozi.github.io/</a>.</p><p><img src="/2019/08/07/lite主题相关内容/registerOAuth.png" srcset="/img/loading.gif" alt="registerOAuth"></p><h1 id="https-github-com-imsun-gitment-customize"><a href="#https-github-com-imsun-gitment-customize" class="headerlink" title="https://github.com/imsun/gitment#customize"></a><a href="https://github.com/imsun/gitment#customize" target="_blank" rel="noopener">https://github.com/imsun/gitment#customize</a></h1><p>gitment:<br>  enable: false<br>  github_id: # your github id<br>  repository_name: # your repository name</p><h1 id="client-id-amp-secret-will-generated-after-register-an-OAuth-App"><a href="#client-id-amp-secret-will-generated-after-register-an-OAuth-App" class="headerlink" title="client_id &amp; secret will generated after register an OAuth App"></a>client_id &amp; secret will generated after register an OAuth App</h1><h1 id="reference-https-github-com-settings-applications-new"><a href="#reference-https-github-com-settings-applications-new" class="headerlink" title="reference: https://github.com/settings/applications/new"></a>reference: <a href="https://github.com/settings/applications/new" target="_blank" rel="noopener">https://github.com/settings/applications/new</a></h1><p>  client_id:<br>  client_secret:<br>  per_page: 8 # comments per page<br>  max_comment_height: 250 # default 250px<br>Google Analytics | 谷歌分析<br>google_analytics:<br>  enable: false # remember to switch to ‘true’ when using google analytics</p><h1 id="replace-to-your-track-id-It-starts-with-‘UA-‘"><a href="#replace-to-your-track-id-It-starts-with-‘UA-‘" class="headerlink" title="replace to your track_id. It starts with ‘UA-‘."></a>replace to your track_id. It starts with ‘UA-‘.</h1><h1 id="这里替换为你的跟踪ID，记得打开enable-true"><a href="#这里替换为你的跟踪ID，记得打开enable-true" class="headerlink" title="这里替换为你的跟踪ID，记得打开enable: true"></a>这里替换为你的跟踪ID，记得打开<code>enable: true</code></h1><p>  track_id: UA-XXXXXX-X<br>Other issues | 其他问题<br>make sure you have installed hexo-pagination. 请确保你已经安装了hexo-pagination<br>npm install –save hexo-pagination # or yarn add hexo-pagination<br>post’s code rendered in one line ? | 文章里的代码都显示在一行？<br>make sure you have turned the highlight plugin on your root __config.yml</p><p>请确保你根目录下的__config.yml文件是打开highlight插件的</p><h1 id="example"><a href="#example" class="headerlink" title="example"></a>example</h1><p>highlight:<br>  enable: true<br>  line_number: true<br>  auto_detect: true<br>  tab_replace:<br>How to upgrade this theme | 如何升级主题<br>recommended method | 推荐做法<br>run the commands in your root hexo dir.</p><p>在根目录下跑这些命令</p><p>cd themes/lite</p><p>git pull<br>other method | 其他暴力做法<br>就是重新删除主题文件夹再安装，记得保存__config.yml文件。</p><p>save your theme __config.yml file.</p><p>delete /themes/lite dir</p><p>enter your hexo root dir</p><p>run command</p><p>git clone <a href="https://github.com/HeskeyBaozi/hexo-theme-lite" target="_blank" rel="noopener">https://github.com/HeskeyBaozi/hexo-theme-lite</a> themes/lite<br>replace theme configure file by using your saved __config.yml</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>我的第一个博客文章</title>
+    <link href="/2019/03/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/"/>
+    <url>/2019/03/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</url>
+    
+    <content type="html"><![CDATA[<p>这是第一个博客文章内容，用于测试</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="/2019/03/03/hello-world/"/>
+    <url>/2019/03/03/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<br><a id="more"></a></p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="hljs bash">$ hexo new <span class="hljs-string">"My New Post"</span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="hljs bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="hljs bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="hljs bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
