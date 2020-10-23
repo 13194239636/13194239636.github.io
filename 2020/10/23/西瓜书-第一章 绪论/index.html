@@ -16,7 +16,7 @@
   <meta name="description" content="作为一只小菜鸟，就要不断努力">
   <meta name="author" content="CodeBird">
   <meta name="keywords" content>
-  <title>相关命令 --- CodeBird</title>
+  <title>CodeBird</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -150,8 +150,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-03-28 16:59" pubdate>
-      2020年3月28日 下午
+    <time datetime="2020-10-23 11:02" pubdate>
+      2020年10月23日 上午
     </time>
   </div>
 
@@ -161,7 +161,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      145 字
+      1.3k 字
     </span>
   
 
@@ -171,7 +171,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      13
        分钟
     </span>
   
@@ -209,46 +209,55 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">相关命令</h1>
+            <h1 style="display: none"></h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：7 个月前
+                  本文最后更新于：6 分钟前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <p>相关命令<br>相关的常用hexo命令集<br><a id="more"></a><br><img src="/2020/03/28/相关命令/1.png" srcset="/img/loading.gif" alt="Git"><br><img src="/2020/03/28/相关命令/2.jpg" srcset="/img/loading.gif" alt="Git"></p>
-<p>##相关命令：<br>这篇文章主要是开启博客的书写历程，并记录一下相关博文的命令行<br>在hexo所在目录下，打开terminal，在命令行输入：<br><pre><code class="hljs undefined">hexo new a
-hexo new draft b#草稿文件
-hexo<span class="hljs-built_in"> server </span>--draft#预览草稿文件
-hexo publish b#发布草稿文件</code></pre></p>
-<p>相关发布命令</p>
-<pre><code>hexo g#生成静态文件
-hexo s -p 5000#启动服务器在5000端口，默认4000
-hexo d#hexo deploy 发布到github
-
-</code></pre><p>a是文章标题，也可以加上双引号,如“a”。</p>
+              <h1 id="西瓜书-第一章-绪论"><a href="#西瓜书-第一章-绪论" class="headerlink" title="西瓜书-第一章 绪论"></a>西瓜书-第一章 绪论</h1><p>什么是机器学习，在绪论中给了一段日常生活中的描述：</p>
+<p><img src="/2020/10/23/西瓜书-第一章 绪论/markdown\西瓜书-第一章 绪论\image-20201009161919081.png" srcset="/img/loading.gif" alt="image-20201009161919081"></p>
+<p>这里给了两个类似机器学习的情况：</p>
+<p>1.为什么看见微雨、细风、晚霞就可以知道明天又是一个好天气呢？</p>
+<p>2.为什么看见根蒂蜷缩、声音浊响的青绿色西瓜就知道是个好瓜呢？</p>
+<p>那么，机器学习是什么呢？</p>
+<p>机器学习就是通过计算的手段，利用经验来改善系统自身的性能。简单地说，就是利用经验，对新的情况做出有效的决策。“经验”通常以数据的形式存储，因此，计算机的机器学习相当于从数据之中获取“<strong>模型（学习器）</strong>”的算法，即“学习算法”，有了该学习算法，通过给经验数据进行训练，产生模型。那么，在面对一个新的情况之时，系统就会提高相应的判断。</p>
+<p>其中，模型泛指从数据中学得的结果，有文献用“模型”指代全局性结果（例如决策树）或者局部性结果（例如规则）</p>
+<h2 id="基本术语"><a href="#基本术语" class="headerlink" title="基本术语"></a>基本术语</h2><p>以西瓜为例：</p>
+<p><strong>记录（示例或样本）：（色泽=青绿；根蒂=蜷缩，敲声=浊响）</strong></p>
+<p>其中色泽为<strong>属性或者特征</strong>，青绿为<strong>属性值</strong>，多条记录称为<strong>数据集</strong>，属性张成的空间成为<strong>属性空间</strong>、<strong>样本空间</strong>或者输入空间，在空间中，记录成为一个<strong>特征向量</strong>。</p>
+<p>学习模型的过程称为<strong>学习或者训练</strong>，训练使用的数据称为<strong>训练数据</strong>，其中每个样本称为<strong>训练样本</strong>。学得的模型对应数据的某种潜在规律，称为<strong>假设</strong>，这种潜在规律自身称为<strong>真相或者事实</strong>。</p>
+<p><strong>标记：好瓜</strong></p>
+<p><strong>样例：（（色泽=青绿；根蒂=蜷缩，敲声=浊响），好瓜）</strong></p>
+<p>标记的集合称为<strong>标记空间或者输出空间</strong>。</p>
+<p>离散值的学习任务称为<strong>分类</strong>，其中只涉及两个类别的分类称为<strong>二分类（正类和反类）</strong>，涉及多个类别的称为多分类。连续值的学习任务称为<strong>回归</strong>。</p>
+<p>有训练样本就有测试样本，<strong>测试样本</strong>就是用于测试的样本。</p>
+<p><strong>聚类</strong>：将训练集中的数据分成若干组。需要注意的是，<u>在聚类学习中，是不存在标记的。</u>也就是说，事先我们并不知道该类西瓜属于什么类型的瓜。</p>
+<p>学习任务可以分为两类：<strong>监督学习（分类和回归）和无监督学习（聚类）</strong>。</p>
+<h2 id="假设空间"><a href="#假设空间" class="headerlink" title="假设空间"></a>假设空间</h2><p><strong>归纳</strong>：从特殊到一般的泛化过程。广义的归纳学习相当于从样例中学习，而狭义的归纳学习则要求从训练数据中学的概念，亦称为<strong>概念学习或概念形成</strong></p>
+<p><strong>演绎</strong>：从一般到特殊的特化过程。</p>
+<p>学习的过程可以看作为在一个所有假设组成的空间中进行搜索的过程，搜索目标是找到与训练集匹配的假设。训练集如下所示：</p>
+<p><img src="/2020/10/23/西瓜书-第一章 绪论/markdown\西瓜书-第一章 绪论\image-20201009165307068.png" srcset="/img/loading.gif" alt="image-20201009165307068"></p>
+<p>假设的表示一旦确定，假设空间及其规模大小就确定了。例如：</p>
+<p><img src="/2020/10/23/西瓜书-第一章 绪论/markdown\西瓜书-第一章 绪论\image-20201009164643342.png" srcset="/img/loading.gif" alt="image-20201009164643342"></p>
+<p>当色泽有3种取值，根蒂有2种取值，敲声有2种取值。同时可用“*”表示不关系这种属性的取值。那么算上不存在这个假设的话，就有  4×3×3+1=37的大小的假设空间：</p>
+<p><img src="/2020/10/23/西瓜书-第一章 绪论/markdown\西瓜书-第一章 绪论\image-20201009164938693.png" srcset="/img/loading.gif" alt="image-20201009164938693"></p>
+<p>但需要注意的是，由于训练样本是有限的，那么可能存在多个假设与训练集一致，即存在一个与训练集一致的<strong>假设集合</strong>，称之为<strong>版本空间</strong>。例如，与上面的训练集所对应的版本空间如下图所示：<img src="/2020/10/23/西瓜书-第一章 绪论/markdown\西瓜书-第一章 绪论\image-20201009165408676.png" srcset="/img/loading.gif" alt="image-20201009165408676"></p>
+<h2 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h2><p>机器学习算法在学习过程中对某种类型假设的偏好称为<strong>归纳偏好</strong>，或简称<strong>偏好</strong>。任何一个有效的机器学习算法必然有其归纳偏好，否则它将被假设空间中看似在训练集上“等效”的假设所迷惑，而无法产生确定的学习结果。</p>
+<p>例如，为了符合下图中黑色点的输出，有两个模型（A和B）可用，但，若认为相似的样本应有相似的输出，则对应的学习算法可能偏好比较平滑的曲线A而不是比较崎岖的曲线B。</p>
+<p><img src="/2020/10/23/西瓜书-第一章 绪论/markdown\西瓜书-第一章 绪论\image-20201009170615645.png" srcset="/img/loading.gif" alt="image-20201009170615645"></p>
+<p>总而言之，归纳偏好相当于一种<strong>启发式或价值观</strong>。但，书中下面这段画，是我读到的一个疑惑，这里我将文中的文字放出来：</p>
+<p><img src="/2020/10/23/西瓜书-第一章 绪论/markdown\西瓜书-第一章 绪论\image-20201009170957775.png" srcset="/img/loading.gif" alt="image-20201009170957775"></p>
+<p><strong>文中此段内容阐述了对于“没有免费的午餐定理”（NFL定理）而言，脱离具体问题，空泛地谈论“什么学习算法更好”毫无意义，因为若考虑所有潜在的问题，则所有算法都一样好。要谈论算法的相对优劣，必须要针对具体的学习问题，学习算法的自身归纳偏好与问题是否相配，往往会起到决定性作用。</strong></p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/hexo/">hexo</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/hexo/">hexo</a>
-                    
-                  </div>
                 
               </div>
               
@@ -259,9 +268,9 @@ hexo d#hexo deploy 发布到github
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/03/28/SPU-in-STT-MRAM/">
+                      <a href="/2020/10/23/西瓜书-第二章 模型评估与选择/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SPU in STT-MRAM</span>
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -269,8 +278,8 @@ hexo d#hexo deploy 发布到github
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/08/10/python3-进制转换及zfill函数和列表倒置的特殊方法/">
-                        <span class="hidden-mobile">python3-进制转换及zfill函数和列表倒置的特殊方法</span>
+                      <a href="/2020/08/23/关于参加第一次学术会议-CTC的总结与感悟/">
+                        <span class="hidden-mobile">关于参加第一次学术会议-CTC的总结与感悟</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -472,7 +481,7 @@ hexo d#hexo deploy 发布到github
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "相关命令&nbsp;",
+        "&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,

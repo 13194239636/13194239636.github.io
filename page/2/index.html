@@ -16,7 +16,7 @@
   <meta name="description" content="作为一只小菜鸟，就要不断努力">
   <meta name="author" content="CodeBird">
   <meta name="keywords" content>
-  <title>归档 --- CodeBird</title>
+  <title>CodeBird</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -38,7 +38,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand" href="/">&nbsp;<strong>CodeBrid</strong>&nbsp;</a>
@@ -127,7 +127,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/miku.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -140,6 +140,10 @@
           </div>
 
           
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
         </div>
       </div>
     </div>
@@ -149,27 +153,127 @@
     
       <div class="container nopadding-md">
         <div class="py-5" id="board"
-          >
+          style=margin-top:0>
           
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">共计 13 篇文章</p>
-  <hr>
-  
+
+  <div class="row mx-auto index-card">
     
-      
-      <p class="h5">2020</p>
     
-    <a href="/2020/08/23/关于参加第一次学术会议-CTC的总结与感悟/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">关于参加第一次学术会议-CTC的总结与感悟</span>
-      <time style="float: right;">08-23</time>
-    </a>
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019/08/07/lite主题相关内容/">lite主题相关内容</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/08/07/lite主题相关内容/">
+          
+          
+            
+          
+          Get Started &amp; Install
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-08-07 09:11" pubdate>
+              2019-08-07
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019/03/03/我的第一个博客文章/">我的第一个博客文章</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/03/03/我的第一个博客文章/">
+          
+          
+            
+          
+          这是第一个博客文章内容，用于测试
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-03-03 21:20" pubdate>
+              2019-03-03
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2019/03/03/hello-world/">Hello World</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2019/03/03/hello-world/">
+          
+          
+            
+          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2019-03-03 20:30" pubdate>
+              2019-03-03
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </span>
+  </nav>
   
-</div>
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
@@ -287,7 +391,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "CodeBird — 记录生活和学习的博客&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,

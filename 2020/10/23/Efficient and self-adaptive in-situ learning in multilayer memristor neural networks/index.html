@@ -16,7 +16,7 @@
   <meta name="description" content="作为一只小菜鸟，就要不断努力">
   <meta name="author" content="CodeBird">
   <meta name="keywords" content>
-  <title>相关命令 --- CodeBird</title>
+  <title>CodeBird</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -150,8 +150,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-03-28 16:59" pubdate>
-      2020年3月28日 下午
+    <time datetime="2020-10-23 11:02" pubdate>
+      2020年10月23日 上午
     </time>
   </div>
 
@@ -161,7 +161,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      145 字
+      1k 字
     </span>
   
 
@@ -171,7 +171,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      15
        分钟
     </span>
   
@@ -209,46 +209,87 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">相关命令</h1>
+            <h1 style="display: none"></h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：7 个月前
+                  本文最后更新于：6 分钟前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <p>相关命令<br>相关的常用hexo命令集<br><a id="more"></a><br><img src="/2020/03/28/相关命令/1.png" srcset="/img/loading.gif" alt="Git"><br><img src="/2020/03/28/相关命令/2.jpg" srcset="/img/loading.gif" alt="Git"></p>
-<p>##相关命令：<br>这篇文章主要是开启博客的书写历程，并记录一下相关博文的命令行<br>在hexo所在目录下，打开terminal，在命令行输入：<br><pre><code class="hljs undefined">hexo new a
-hexo new draft b#草稿文件
-hexo<span class="hljs-built_in"> server </span>--draft#预览草稿文件
-hexo publish b#发布草稿文件</code></pre></p>
-<p>相关发布命令</p>
-<pre><code>hexo g#生成静态文件
-hexo s -p 5000#启动服务器在5000端口，默认4000
-hexo d#hexo deploy 发布到github
-
-</code></pre><p>a是文章标题，也可以加上双引号,如“a”。</p>
+              <h1 id="Efficient-and-self-adaptive-in-situ-learning-in-multilayer-memristor-neural-networks"><a href="#Efficient-and-self-adaptive-in-situ-learning-in-multilayer-memristor-neural-networks" class="headerlink" title="Efficient and self-adaptive in-situ learning in multilayer memristor neural networks"></a>Efficient and self-adaptive in-situ learning in multilayer memristor neural networks</h1><h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p>With the introduction of hardware accelerators inference in deep neural networks (DNNs) focus on improving overall energy and time performance for artificial intelligence applications is now on training.<br>One promising approach is in-memory analog computation based on memristor crossbars , for which simulations have indicated potentially significant speed and power advantages over digital complementary metal-oxide-semiconductor (CMOS) .</p>
+<p>memristive neural networks have struggled with device non-uniformity, resistance level instability, sneak path currents, and wire resistance, which<br>have limited array sizes and system performance. In particular, learning in memristor neural networks has been hampered by significant statistical variations and fluctuations in programmed conductance states and the lack of linear and symmetric responses to electric pulses .</p>
+<h2 id="motivation"><a href="#motivation" class="headerlink" title="motivation"></a>motivation</h2><ol>
+<li>because of challenges in device property engineering and circuit integration, in situ learning on a large-scale multiple-layer memristor network has yet to be demonstrated  </li>
+<li>experimental demonstrations to date have been limited to discrete devices or small arrays and simplified problems .</li>
+</ol>
+<h2 id="contribution"><a href="#contribution" class="headerlink" title="contribution"></a>contribution</h2><ol>
+<li><p>we monolithically integrate hafnium oxide-based memristors with a foundrymade transistor array into a <strong>multiple-layer neural network</strong>. </p>
+</li>
+<li><p>we report an experimental demonstration of <strong>highly efficient in situ learning in a multilayer neural network</strong> implemented in a 128 × 64 memristor array.  </p>
+</li>
+<li><p>Experimentally demonstrate <strong>in situ learning capability</strong> and achieve competitive classification accuracy（91.71%） on a standard machine learning dataset, which further confirms that <strong>the training algorithm allows the</strong><br><strong>network to adapt to hardware imperfections</strong>.  （self-adaptive）：</p>
+<ul>
+<li>The online training is also able to update the weights to compensate for possible hardware and memristor conductance<br>drift over time  </li>
+<li>if pre-trained weights are loaded to the memristor crossbar<br>(i.e., <strong>ex situ training</strong>), the classification accuracy decreases quickly with the defect rate ，while <strong>the in situ training</strong> adapts the weights and compensates them automatically. The self-adaption is more powerful in a deeper network in which the<br>hidden neurons are able to minimize the impact of defects. </li>
+</ul>
+</li>
+<li><p>using the experimental parameters validates that a <strong>larger network</strong> would further <strong>increase the classification accuracy</strong>.  （97% in 1024*512 array）</p>
+</li>
+<li><p>develop a reliable two-pulse conductance programming scheme utilizing on-chip series transistors to <strong>address the challenges in memristor conductance programming</strong>.  (significantly improves accuracy and defect tolerance  ):</p>
+<p>1)To increase the conductance of a given cross point, we applied synchronized positive voltage pulses from a driving circuit board to the memristor top electrode and the gate of the series transistor.  The gate voltage,which specifies a compliance current, determines the resulting memristor conductance.  </p>
+<p>2)We decreased the conductance by first applying a sufficient positive pulse to the memristor bottom electrode to initialize the state, and then used the conductance increase scheme to set the memristor to the desired level.</p>
+<p>The speed and reliability of the conductance update scheme make it possible to train the network in situ with almost any standard algorithm.  </p>
+</li>
+</ol>
+<h2 id="conclusion"><a href="#conclusion" class="headerlink" title="conclusion"></a>conclusion</h2><h2 id="terminology"><a href="#terminology" class="headerlink" title="terminology"></a>terminology</h2><ul>
+<li><p>Modified National Institute of Standards and Technology (MNIST) handwritten digit database   - 一套用于机器学习的传统数据集，训练集大小为8万，测试集大小为一万。</p>
+</li>
+<li><p>inference - 神经网络的推理过程</p>
+</li>
+<li><p>softmax function - 归一化指数函数，是signmod在多分类任务上的推广，将多分类的结果以概率的形式展现出来：</p>
+<p><img src="/2020/10/23/Efficient and self-adaptive in-situ learning in multilayer memristor neural networks/markdown\论文笔记\Efficient and self-adaptive in-situ learning in multilayer memristor neural networks\image-20201014151106599.png" srcset="/img/loading.gif" alt="image-20201014151106599"></p>
+<p>对应公式为：<img src="/2020/10/23/Efficient and self-adaptive in-situ learning in multilayer memristor neural networks/markdown\论文笔记\Efficient and self-adaptive in-situ learning in multilayer memristor neural networks\image-20201014150732321.png" srcset="/img/loading.gif" alt="image-20201014150732321"></p>
+<p>主要可以理解为分成两部步，第一步是将计算的结果（负无穷到正无穷）用指数函数变成0到正无穷。第二步是将数据归一化。例如：</p>
+<p><img src="/2020/10/23/Efficient and self-adaptive in-situ learning in multilayer memristor neural networks/markdown\论文笔记\Efficient and self-adaptive in-situ learning in multilayer memristor neural networks\image-20201014151414465.png" srcset="/img/loading.gif" alt="image-20201014151414465"></p>
+</li>
+<li><p>stochastic gradient descent (SGD)  - 随机梯度下降法，梯度下降法分为随机梯度下降，批量梯度下降和小批量梯度下降。</p>
+</li>
+<li><p>cross-entropy loss function - 交叉熵损失函数：用来判断预测答案和真实答案之间的距离。</p>
+<p><img src="/2020/10/23/Efficient and self-adaptive in-situ learning in multilayer memristor neural networks/markdown\论文笔记\Efficient and self-adaptive in-situ learning in multilayer memristor neural networks\image-20201014154035573.png" srcset="/img/loading.gif" alt="image-20201014154035573"></p>
+</li>
+</ul>
+<p><img src="/2020/10/23/Efficient and self-adaptive in-situ learning in multilayer memristor neural networks/markdown\论文笔记\Efficient and self-adaptive in-situ learning in multilayer memristor neural networks\image-20201014154249441.png" srcset="/img/loading.gif" alt="image-20201014154249441"></p>
+<ul>
+<li>synaptic  - 突触</li>
+<li>printed circuit boards   - PCB 印刷电路板</li>
+<li>perceptron  -  感知器</li>
+<li>sparse matrices  -  稀疏矩阵</li>
+<li>long short term memory network -  一种特殊的RNN，长短期记忆网络</li>
+<li>online/offline algorithm - 区别在于：<ol>
+<li>是否假设输入已知，离线算法假设所有输入已知，而在线算法假设输入是序列化，一个接着一个，只有一个输入得到输出，才能输入下一个。</li>
+<li>是否已知外界环境配置，离线算法假设已知网络环境情况，在线算法则假设未知，需要不断输入数据并调整以适应配置情况。  </li>
+</ol>
+</li>
+</ul>
+<h2 id="expression"><a href="#expression" class="headerlink" title="expression"></a>expression</h2><ul>
+<li>to date</li>
+<li>tunable resistance</li>
+<li>linear current–voltage (IV) relationship  </li>
+</ul>
+<h2 id="idea"><a href="#idea" class="headerlink" title="idea"></a>idea</h2><ol>
+<li>反向传播过程是否可以用硬件实现，目前的神经网络在前向传播过程中利用忆阻器来训练，但是反向却选择软件侧面实现，用硬件实现是否可行？</li>
+<li>针对某些应用，通过使用带宽/带宽比（增加运行时间），或者用多个忆阻器来代表权重（增加面积开销）以此改善忆阻器的IV线性特性，训练神经网络。</li>
+<li>在memristor crossbar上如何高效地实现CNN或者LSTM等此类的RNN？</li>
+<li>通过忆阻器实现各种激活函数？例如：signmoid、tanh、ReLU、Leakly ReLU。</li>
+</ol>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/hexo/">hexo</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/hexo/">hexo</a>
-                    
-                  </div>
                 
               </div>
               
@@ -259,18 +300,12 @@ hexo d#hexo deploy 发布到github
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/03/28/SPU-in-STT-MRAM/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SPU in STT-MRAM</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2019/08/10/python3-进制转换及zfill函数和列表倒置的特殊方法/">
-                        <span class="hidden-mobile">python3-进制转换及zfill函数和列表倒置的特殊方法</span>
+                      <a href="/2020/10/23/西瓜书-第二章 模型评估与选择/">
+                        <span class="hidden-mobile"></span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -472,7 +507,7 @@ hexo d#hexo deploy 发布到github
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "相关命令&nbsp;",
+        "&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,
