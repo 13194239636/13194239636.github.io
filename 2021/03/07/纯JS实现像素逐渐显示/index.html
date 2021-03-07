@@ -1,0 +1,742 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="作为一只小菜鸟，就要不断努力">
+  <meta name="author" content="CodeBird">
+  <meta name="keywords" content>
+  <title>纯JS实现像素逐渐显示 --- CodeBird</title>
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
+  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+
+  
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css">
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/color-schema.js"></script>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">&nbsp;<strong>CodeBrid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-03-07 16:51" pubdate>
+      2021年3月7日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      23
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">纯JS实现像素逐渐显示</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：3 小时前
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <p>就是对于新手的我，以前从来没有做过对像素进行操作的实例。于是把资料书找了出来，实现了这个功能，比较简单，大神勿喷。下面是效果图，因为重在思路，效果就简陋一些。</p>
+<a id="more"></a>
+<p><img src="/2021/03/07/纯JS实现像素逐渐显示/1.png" srcset="/img/loading.gif" alt="copy"></p>
+<p><img src="/2021/03/07/纯JS实现像素逐渐显示/2.png" srcset="/img/loading.gif" alt="copy"></p>
+<p><img src="/2021/03/07/纯JS实现像素逐渐显示/3.png" srcset="/img/loading.gif" alt="copy"></p>
+<p>其实就是简单的用JS实现将左上角的矩形随时间图像逐渐显示在它的右下方。</p>
+<p>首先，先把思路架构起来，因为对像素操作，所以需要用到canvas。</p>
+<p>然后，我们 需要画一个矩形，并且需要获取到它的每一个像素的值，即每一个像素的4要素，rgba。（方法getImageData，4个参数，前两个坐标，X和Y，后两个是长和宽）</p>
+<p>最后，用一个定时器实现逐渐显示的功能。（显示可以用putImageData，3个参数，第一个是需要显示的图像，第二和第三是坐标值XY）</p>
+<p> 然后我们开始动手敲代码：</p>
+<p>我们可以先做出一个没有定时器的，也就是先试着获取到原矩形1/10的像素点，然后显示出来。</p>
+<pre><code class="hljs undefined"> 1 <span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+ 2 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+ 3 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+ 4     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+ 5     <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="undefined">
+ 6         body&#123;
+ 7             background-color: black;
+ 8         &#125;
+ 9         canvas&#123;
+10             background-color: white;
+11         &#125;
+12     </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+13     <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+14     <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-number">15</span>         <span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+<span class="hljs-number">16</span>             <span class="hljs-keyword">var</span> oC = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"#c"</span>);
+<span class="hljs-number">17</span>             <span class="hljs-keyword">var</span> oGc = oC.getContext(<span class="hljs-string">"2d"</span>);
+<span class="hljs-number">18</span>             oGc.fillRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);<span class="hljs-comment">//画原矩形</span>
+<span class="hljs-number">19</span> 
+<span class="hljs-number">20</span>             <span class="hljs-keyword">var</span> rectData = oGc.getImageData(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);<span class="hljs-comment">//获取原矩形的像素点的值</span>
+<span class="hljs-number">21</span>             <span class="hljs-keyword">var</span> w = rectData.width;<span class="hljs-comment">//原矩形的宽</span>
+<span class="hljs-number">22</span>             <span class="hljs-keyword">var</span> h = rectData.height;<span class="hljs-comment">//原矩形的长</span>
+<span class="hljs-number">23</span> 
+<span class="hljs-number">24</span>             <span class="hljs-keyword">var</span> dataC = randomData(w*h,w*h/<span class="hljs-number">10</span>);<span class="hljs-comment">//randomData方法实现随机从原矩形的像素点中抽取一部分出来</span>
+<span class="hljs-number">25</span>             <span class="hljs-keyword">var</span> newData = oGc.createImageData(w,h);<span class="hljs-comment">//创造一个新的矩形</span>
+<span class="hljs-number">26</span> 
+<span class="hljs-number">27</span> 
+<span class="hljs-number">28</span>             <span class="hljs-comment">//dataC数组中存放的是第几个像素，*4是为了把图片的data数组定位到这个像素的数据的第一个值，然后加一是第二个，以此类推。</span>
+<span class="hljs-number">29</span>             <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> j=<span class="hljs-number">0</span>;j&lt;dataC.length;j++)&#123;
+<span class="hljs-number">30</span>                 newData.data[<span class="hljs-number">4</span>*dataC[j]]=rectData.data[<span class="hljs-number">4</span>*dataC[j]];
+<span class="hljs-number">31</span>                 newData.data[<span class="hljs-number">4</span>*dataC[j]+<span class="hljs-number">1</span>]=rectData.data[<span class="hljs-number">4</span>*dataC[j]+<span class="hljs-number">1</span>];
+<span class="hljs-number">32</span>                 newData.data[<span class="hljs-number">4</span>*dataC[j]+<span class="hljs-number">2</span>]=rectData.data[<span class="hljs-number">4</span>*dataC[j]+<span class="hljs-number">2</span>];
+<span class="hljs-number">33</span>                 newData.data[<span class="hljs-number">4</span>*dataC[j]+<span class="hljs-number">3</span>]=rectData.data[<span class="hljs-number">4</span>*dataC[j]+<span class="hljs-number">3</span>];
+<span class="hljs-number">34</span>             &#125;
+<span class="hljs-number">35</span>             oGc.putImageData(newData,w,h);
+<span class="hljs-number">36</span> 
+<span class="hljs-number">37</span>             <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">randomData</span>(<span class="hljs-params">allNum,nowNum</span>) </span>&#123;
+<span class="hljs-number">38</span>                 <span class="hljs-keyword">var</span> dataA = [];
+<span class="hljs-number">39</span>                 <span class="hljs-keyword">var</span> dataB = [];
+<span class="hljs-number">40</span>                 <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;allNum;i++)&#123;
+<span class="hljs-number">41</span>                     dataA.push(i);
+<span class="hljs-number">42</span>                 &#125;
+<span class="hljs-number">43</span> 
+<span class="hljs-number">44</span>                 <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;nowNum;i++)&#123;
+<span class="hljs-number">45</span>                     dataB.push(dataA.splice(<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*dataA.length),<span class="hljs-number">1</span>));
+<span class="hljs-number">46</span> 
+<span class="hljs-number">47</span>                 &#125;
+<span class="hljs-number">48</span>                 <span class="hljs-keyword">return</span> dataB;
+<span class="hljs-number">49</span> 
+<span class="hljs-number">50</span>             &#125;
+<span class="hljs-number">51</span> 
+<span class="hljs-number">52</span>         &#125;
+<span class="hljs-number">53</span>     </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+54 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+55 <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+56 <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"c"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"400"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"400"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
+57 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+58 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<p>其中因为getImageData的data属性是一个数组，而且数组中的存放的东西，就是我们需要的rgba4个数，存放形式为：</p>
+<p>data[0]第一个像素点的r值:</p>
+<p>data[1]:第一个像素点的g值</p>
+<p>data[2]:第一个像素点的b值</p>
+<p>data[3]:第一个像素点的a值</p>
+<p>data[4]:第二个像素点的r值</p>
+<p>data[5]:第二个像素点的g值</p>
+<p>以此类推，4个一循环。</p>
+<p>然后数组dataC里面存放的是取出的像素点位置，然后用乘以4和分别加一，加二，加三为了定位到每一个像素点的rgba分别的4个值。此时就能实现抽取一部分像素点显示的功能。</p>
+<p>最后，将代码改进。</p>
+<p>第一步，我们需要改进randomData这个函数，使之返回的数组是包含原矩形的所有像素。</p>
+<pre><code class="hljs undefined"> <span class="hljs-number">1</span> function randomData(allNum,nowNum) &#123;
+ <span class="hljs-number">2</span>                 var dataA = [];
+ <span class="hljs-number">3</span>                 var dataB = [];
+ <span class="hljs-number">4</span>                 for(var i=<span class="hljs-number">0</span>;i&lt;allNum;i++)&#123;
+ <span class="hljs-number">5</span>                     dataA.push(i);
+ <span class="hljs-number">6</span>                 &#125;
+ <span class="hljs-number">7</span> 
+ <span class="hljs-number">8</span>                 for(var i=<span class="hljs-number">0</span>;i&lt;allNum/nowNum;i++)&#123;
+ <span class="hljs-number">9</span>                     var otherData = [];
+<span class="hljs-number">10</span>                     for(var j=<span class="hljs-number">0</span>;j&lt;nowNum;j++)&#123;
+<span class="hljs-number">11</span>                         otherData.push(dataA.splice(Math.floor(Math.random()*dataA.length),<span class="hljs-number">1</span>));
+<span class="hljs-number">12</span>                     &#125;
+<span class="hljs-number">13</span>                     dataB.push(otherData);
+<span class="hljs-number">14</span>                 &#125;
+<span class="hljs-number">15</span>                 return dataB;
+<span class="hljs-number">16</span>             &#125;</code></pre>
+<p>嵌套了一层for循环，使返回的dataB数组里面分成了一定组数的一定量个像素点。</p>
+<p>然后增加一个定时器，最终代码为：</p>
+<pre><code class="hljs undefined"> 1 <span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+ 2 <span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>
+ 3 <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+ 4     <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"UTF-8"</span>&gt;</span>
+ 5     <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="undefined">
+ 6         body&#123;
+ 7             background-color: black;
+ 8         &#125;
+ 9         canvas&#123;
+10             background: #fff;
+11         &#125;
+12     </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+13     <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Title<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+14     <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-number">15</span>         <span class="hljs-built_in">window</span>.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;
+<span class="hljs-number">16</span>             <span class="hljs-keyword">var</span> oC = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">"#c"</span>);
+<span class="hljs-number">17</span>             <span class="hljs-keyword">var</span> oGc = oC.getContext(<span class="hljs-string">"2d"</span>);
+<span class="hljs-number">18</span>             oGc.fillRect(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
+<span class="hljs-number">19</span> 
+<span class="hljs-number">20</span>             <span class="hljs-keyword">var</span> rectData = oGc.getImageData(<span class="hljs-number">0</span>,<span class="hljs-number">0</span>,<span class="hljs-number">100</span>,<span class="hljs-number">100</span>);
+<span class="hljs-number">21</span>             <span class="hljs-keyword">var</span> w = rectData.width;
+<span class="hljs-number">22</span>             <span class="hljs-keyword">var</span> h = rectData.height;
+<span class="hljs-number">23</span> 
+<span class="hljs-number">24</span> 
+<span class="hljs-number">25</span>             <span class="hljs-keyword">var</span> dataC = randomData(w*h,w*h/<span class="hljs-number">10</span>);
+<span class="hljs-number">26</span>             <span class="hljs-keyword">var</span> newData = oGc.createImageData(w,h);
+<span class="hljs-number">27</span> 
+<span class="hljs-number">28</span>             <span class="hljs-keyword">var</span> iNum = <span class="hljs-number">0</span>;
+<span class="hljs-number">29</span> 
+<span class="hljs-number">30</span>             <span class="hljs-keyword">var</span> timer = setInterval(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>&#123;
+<span class="hljs-number">31</span>                 <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> j=<span class="hljs-number">0</span>;j&lt;dataC[iNum].length;j++)&#123;
+<span class="hljs-number">32</span>                     newData.data[<span class="hljs-number">4</span>*dataC[iNum][j]]=rectData.data[<span class="hljs-number">4</span>*dataC[iNum][j]];
+<span class="hljs-number">33</span>                     newData.data[<span class="hljs-number">4</span>*dataC[iNum][j]+<span class="hljs-number">1</span>]=rectData.data[<span class="hljs-number">4</span>*dataC[iNum][j]+<span class="hljs-number">1</span>];
+<span class="hljs-number">34</span>                     newData.data[<span class="hljs-number">4</span>*dataC[iNum][j]+<span class="hljs-number">2</span>]=rectData.data[<span class="hljs-number">4</span>*dataC[iNum][j]+<span class="hljs-number">2</span>];
+<span class="hljs-number">35</span>                     newData.data[<span class="hljs-number">4</span>*dataC[iNum][j]+<span class="hljs-number">3</span>]=rectData.data[<span class="hljs-number">4</span>*dataC[iNum][j]+<span class="hljs-number">3</span>];
+<span class="hljs-number">36</span> 
+<span class="hljs-number">37</span>                 &#125;
+<span class="hljs-number">38</span>                 oGc.putImageData(newData,w,h);
+<span class="hljs-number">39</span> 
+<span class="hljs-number">40</span>                 <span class="hljs-keyword">if</span>(iNum&lt;<span class="hljs-number">9</span>)&#123;
+<span class="hljs-number">41</span>                     iNum++;
+<span class="hljs-number">42</span>                 &#125;
+<span class="hljs-number">43</span>                 <span class="hljs-keyword">else</span>&#123;
+<span class="hljs-number">44</span>                     iNum=<span class="hljs-number">0</span>;
+<span class="hljs-number">45</span>                     oGc.clearRect(w,h,w,h);
+<span class="hljs-number">46</span>                     <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;newData.data.length;i++)&#123;
+<span class="hljs-number">47</span>                         newData.data[i]=<span class="hljs-number">0</span>;
+<span class="hljs-number">48</span>                     &#125;
+<span class="hljs-number">49</span>                 &#125;
+<span class="hljs-number">50</span>             &#125;,<span class="hljs-number">200</span>);
+<span class="hljs-number">51</span> 
+<span class="hljs-number">52</span> 
+<span class="hljs-number">53</span>             <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">randomData</span>(<span class="hljs-params">allNum,nowNum</span>) </span>&#123;
+<span class="hljs-number">54</span>                 <span class="hljs-keyword">var</span> dataA = [];
+<span class="hljs-number">55</span>                 <span class="hljs-keyword">var</span> dataB = [];
+<span class="hljs-number">56</span>                 <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;allNum;i++)&#123;
+<span class="hljs-number">57</span>                     dataA.push(i);
+<span class="hljs-number">58</span>                 &#125;
+<span class="hljs-number">59</span> 
+<span class="hljs-number">60</span>                 <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>;i&lt;allNum/nowNum;i++)&#123;
+<span class="hljs-number">61</span>                     <span class="hljs-keyword">var</span> otherData = [];
+<span class="hljs-number">62</span>                     <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> j=<span class="hljs-number">0</span>;j&lt;nowNum;j++)&#123;
+<span class="hljs-number">63</span>                         otherData.push(dataA.splice(<span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random()*dataA.length),<span class="hljs-number">1</span>));
+<span class="hljs-number">64</span>                     &#125;
+<span class="hljs-number">65</span>                     dataB.push(otherData);
+<span class="hljs-number">66</span>                 &#125;
+<span class="hljs-number">67</span>                 <span class="hljs-keyword">return</span> dataB;
+<span class="hljs-number">68</span>             &#125;
+<span class="hljs-number">69</span> 
+<span class="hljs-number">70</span>         &#125;
+<span class="hljs-number">71</span>     </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+72 <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+73 <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+74 <span class="hljs-tag">&lt;<span class="hljs-name">canvas</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"c"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"400"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"400"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">canvas</span>&gt;</span>
+75 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+76 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre>
+<p>其中31到35行的for循环还是一样将原矩形的像素点传递给新矩形。但是这一次是用iNum来实现分批次的传递和显示。注意这里的dataC，也就是randomData函数返回的数组是一个二维数组。最后用一个if—else判断来控制计时器的继续计时和停止计时。</p>
+<p>因为是新手，有写的不好的地方，请多多见谅，有问题或者看不懂的地方可以咨询我。大家一起努力。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/前端/">前端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/前端/">前端</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/07/jquery独特的选择器/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">jquery独特的选择器</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/07/css的选择器的优先级/">
+                        <span class="hidden-mobile">css的选择器的优先级</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "pMu6qdvVs0oIKPDGQ6Rh9uV0-gzGzoHsz",
+          app_key: "LyUkwvTfVqFOAXak26nu6HTF",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" srcset="/img/loading.gif" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="/js/debouncer.js"></script>
+<script src="/js/main.js"></script>
+
+<!-- Plugins -->
+
+
+  
+    <script src="/js/lazyload.js"></script>
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+  <script src="/js/clipboard-use.js"></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <script src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "纯JS实现像素逐渐显示&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 50,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>
