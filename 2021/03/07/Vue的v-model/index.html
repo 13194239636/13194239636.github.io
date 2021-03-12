@@ -219,8 +219,8 @@
             
             <div class="markdown-body" id="post-body">
               <p>学习了一段时间的vue，并尝试着做了几个小项目，在项目中发现了一个问题，就是在写组件的时候，遇到input框时，外部怎么实时取到组件内部input的值的问题。上网查了一下i，自己有也尝试了。</p>
-<p>首先先了解了v-model的真正的情况：<br><pre><code class="hljs undefined">&lt;input <span class="hljs-attribute">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attribute">v-model</span>=<span class="hljs-string">"val"</span>&gt;</code></pre></p>
-<p>等同于<br><pre><code class="hljs undefined">&lt;input <span class="hljs-attribute">type</span>=<span class="hljs-string">"text"</span> :<span class="hljs-attribute">value</span>=<span class="hljs-string">"val"</span> @<span class="hljs-attribute">input</span>=<span class="hljs-string">"val=<span class="hljs-variable">$event</span>.target.value"</span>&gt;</code></pre></p>
+<p>首先先了解了v-model的真正的情况：<br><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">v-model</span>=<span class="hljs-string">"val"</span>&gt;</span></code></pre></p>
+<p>等同于<br><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">:value</span>=<span class="hljs-string">"val"</span> @<span class="hljs-attr">input</span>=<span class="hljs-string">"val=$event.target.value"</span>&gt;</span></code></pre></p>
 <p>可以看到，实际上就是绑定了一个value属性，然后去监听input时间，实时的更新当前的value值。</p>
 <p>那么我们可以借用这个思想，再加上计算属性的get和set去控制组件内部的值和组件外部的v-model的值的绑定：</p>
 <pre><code class="hljs undefined"><span class="xml"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>

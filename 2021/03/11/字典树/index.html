@@ -16,7 +16,7 @@
   <meta name="description" content="作为一只小菜鸟，就要不断努力">
   <meta name="author" content="CodeBird">
   <meta name="keywords" content>
-  <title>西瓜书-第二章 模型评估与选择 --- CodeBird</title>
+  <title>字典树介绍 --- CodeBird</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -150,8 +150,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-10-23 20:29" pubdate>
-      2020年10月23日 晚上
+    <time datetime="2021-03-11 19:50" pubdate>
+      2021年3月11日 晚上
     </time>
   </div>
 
@@ -161,7 +161,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.8k 字
+      956 字
     </span>
   
 
@@ -171,7 +171,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      19
+      11
        分钟
     </span>
   
@@ -209,69 +209,79 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">西瓜书-第二章 模型评估与选择</h1>
+            <h1 style="display: none">字典树介绍</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：5 个月前
+                  本文最后更新于：3 分钟前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="西瓜书-第二章-模型评估与选择"><a href="#西瓜书-第二章-模型评估与选择" class="headerlink" title="西瓜书-第二章 模型评估与选择"></a>西瓜书-第二章 模型评估与选择</h1><p>在训练完一个模型之后，所得到的模型在新的数据集上进行测试，所得的误差该如何定量和评估将是这一章讲解的内容。</p>
-<h2 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h2><p>错误率：<br>$$<br>E=a/m<br>$$<br>精度：<br>$$<br>1-a/m<br>$$<br>将实际预测输出与样本的真实输出之间的差异称为<strong>误差</strong>，在训练集上的误差称为<strong>训练误差</strong>，或者<strong>经验误差</strong>，在新样本上的误差称为<strong>泛化误差</strong>。</p>
-<p><strong>欠拟合</strong>：对样本学习不足，例如有些一般性质没有学号。</p>
-<p><strong>过拟合</strong>：对样本学习太好，导致一些样本的特色性质被学会。<em>（关键障碍）</em></p>
-<p><img src="/2020/10/23/西瓜书-第二章 模型评估与选择/image-20201009170957775.png" srcset="/img/loading.gif" alt="image-20201020090816503"></p>
-<h2 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h2><p>既然知道了在训练或测试时候会存在误差，那么该如何评估呢，一般<strong>利用在训练集中划分出一部分测试集（验证集）用以作为泛化误差的泛化。</strong></p>
-<p>那么新的问题又来了，如何划分呢？</p>
-<h5 id="留出法"><a href="#留出法" class="headerlink" title="留出法"></a>留出法</h5><p>将训练集按照一定的比例留出测试集，即将数据集D划分成两个互斥的集合，其中一个作为训练集S，另一个作为测试集T，即<br>$$<br>D=S∪T,S∩T=空集<br>$$<br>用T来评估其测试误差，作为对泛化误差的估计。</p>
-<p>但留出法需要注意的是：</p>
-<ol>
-<li><p>数据集的划分要尽可能保持数据分布的一致性，避免因数据划分过程引入额外的偏差而对最终结果产生影响。</p>
-</li>
-<li><p>划分比例有很多，该如何确定划分比例也是一个问题，一般是采用若干次随机划分，重复进行实验评估后取平均值作为留出法的评估结果。</p>
-</li>
-<li><p>另外，若训练集S包含了数据集的绝大多数样本，则训练出的模型可能更接近于数据集训练出的模型，但测试集T比较小，导致评估结果不准确。反之，若让测试集T包含较多样本，那么训练集S与数据集D差别太大，两者训练出来的模型可能有较大差别。<strong>目前一般用2/3~4/5的样本用于训练，剩余样本用于测试。</strong></p>
-<h5 id="交叉验证法"><a href="#交叉验证法" class="headerlink" title="交叉验证法"></a>交叉验证法</h5></li>
-</ol>
-<p>交叉验证法先将数据集D划分为<em>k</em>个大小相等的互斥子集，即<br>$$<br>D=D1∪D2∪D3…Dk,其中Di∩Dj=空集<br>$$<br>同时，需要保持数据的一致性。然后每次用<em>k-1</em>个子集的并集作为训练集，余下的那个子集作为测试集；这样可以获得<em>K</em>组训练/测试集，从而可进行k次训练和测试，返回k次训练得到结果的均值。如图，是一个10折交叉验证的示意图：</p>
-<p><img src="/2020/10/23/西瓜书-第二章 模型评估与选择/image-20201020092551162.png" srcset="/img/loading.gif" alt="image-20201020092551162"></p>
-<p>最常见的就是10次10折交叉验证。</p>
-<h5 id="自助法"><a href="#自助法" class="headerlink" title="自助法"></a>自助法</h5><p>目前来看，留出法和交叉验证法都因为保留了一部分样本用于测试，因此实际评估的模型所用的训练集S比数据集D小，必然导致训练样本规模不同而导致的估计偏差。因此，自助法出现了：</p>
-<p>对数据集D进行采样，每次采用一个样本，并返回，直至采用所得样本数据集（D‘）大小与源数据集D相同大小。可以看出，一些样本可能会多次出现在D’中，而有一些样本则不会出现。那么样本在m次采样中始终不被采到的概率是（1-1/m）的m次方，取极限就是：</p>
-<p><img src="/2020/10/23/西瓜书-第二章 模型评估与选择/image-20201020093934704.png" srcset="/img/loading.gif" alt="image-20201020093934704"></p>
-<p>也就是说，初始数据集中有约36.8%的样本未出现在采样数据集D‘中，于是可以将D’用作训练集，D\D’用作测试集，这样，实际评估的模型与期望评估的模型都使用了相同大小的训练样本，而我们仍然有数据总量的1/3没出现在训练集中，这些就可以用作测试集，亦称<strong>“包外估计”</strong></p>
-<p>但是需要注意的是，自助法在数据集较小，难以有效划分训练/测试集时很有用，此外，这种可以从初始数据集中产生多个不同的训练集的方法对集成学习有很大好处。但是，自助法产生的数据集改变了初始数据集的分布，会引入估计偏差，因此，在初始数据量够大的情况下，一般采用留出或者交叉验证法更有效。</p>
-<h2 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h2><p>目前分类任务最常用的两种性能度量是错误率和精度。但这两个指标并不能完全评判模型，需要其他指标，也就有了以下三个指标：</p>
-<ol>
-<li><p><strong>查准率</strong>：<br>$$<br>P=TP/(TP+FP)<br>$$</p>
-</li>
-<li><p>查全率:<br>$$<br>R=TP/(TP+FN)<br>$$</p>
-</li>
-<li><p><strong>F1</strong>:<br>$$<br>F1=（2<em>P</em>R）/(P+R)=（2*TP）/(样例总数+TP-TN)<br>$$<br>其次，当把F1泛化之后，可以得到根据对查准率或者查全率的不同偏好，它定义为：</p>
-</li>
-</ol>
-<p><img src="/2020/10/23/西瓜书-第二章 模型评估与选择/image-20201020154704736.png" srcset="/img/loading.gif" alt="image-20201020154704736"></p>
-<p>另外，P-R图是以P指标为横坐标，R指标为纵坐标，得到的更直观的性能评估，如果曲线A完全包含曲线B，则可以称曲线A所代表的模型优于曲线B的模型。若不是完全包含，则一般用平衡点（BEP）来度量孰好孰坏。它是查准率=查全率时的取值。</p>
-<p><strong>ROC与AUC</strong></p>
-<p>有一些模型是通过产生一系列实值或者概率预测来进行分类，通过将得到的实值在一个阈值内截断，大于阈值的判为正例，否则为反例。而阈值的好坏将决定模型的泛化性能。那么该如何评判多大的阈值会有怎样的泛化性能呢，ROC就出现了，ROC是从这个角度出发来研究学习器泛化性能好坏的有力工具。</p>
-<p>ROC：通过模型的预测结果对样例进行排序，按此顺序逐个把样本作为正例进行预测，每次计算出两个重要量的值，以它们为横纵坐标作图。</p>
-<p>ROC曲线的纵坐标是真正例率：<br>$$<br>TPR=TP/(TP+FN)<br>$$<br>而横轴是假正例率。<br>$$<br>FPR = FP/（TN+FP）<br>$$<br>AUC就是曲线包含的面积，一般用来判断ROC的优劣程度。</p>
-<p><img src="/2020/10/23/西瓜书-第二章 模型评估与选择/image-20201020160540168.png" srcset="/img/loading.gif" alt="image-20201020160540168"></p>
-<p>另外，ROC只有在均等代价的情况下才有效，若是非均等代价的情况，则需要依靠<strong>代价曲线</strong>进行</p>
-<h2 id="比较检验"><a href="#比较检验" class="headerlink" title="比较检验"></a>比较检验</h2><p>获得性能指标之后如何度量呢？这也是一个问题。</p>
-<ol>
-<li><p>首先，我们希望比较的是泛化性能，然而通过实验评估方法我们获得的是测试集上的性能，两者的对比结果未必相同。</p>
-</li>
-<li><p>其次，测试集上的性能与测试集本身的选择有很大关系，不仅测试集大小，即使相同的测试集大小，包含不同的测试集样本的测试结果也可能不同。</p>
-</li>
-<li><p>很多机器学习算法具有一定的随机性，即便用相同的参数设置在同一个测试集上多次运行，其结果也会有可能不同。</p>
-<p>为方便讨论，本节默认以错误率为性能度量，用</p>
-</li>
-</ol>
-<p>$$<br>\epsilon<br>$$</p>
-<p>表示。</p>
+              <h1 id="字典树"><a href="#字典树" class="headerlink" title="字典树"></a>字典树</h1><p>字典树是一种较为特殊的数据结构，今天和小伙伴讨论的时候得知。因此写下该笔记，并附上相关代码加深印象。</p>
+<a id="more"></a>
+<h2 id="引例"><a href="#引例" class="headerlink" title="引例"></a>引例</h2><p>给定一个字符串数组，里面包含了一堆字符串，让你统计每个字符串（单词）出现的次数。</p>
+<p>解法1：暴力解法：</p>
+<p>直接遍历统计所有的单词出现的次数。该解法为最容易想到，但是效率最低的一种。</p>
+<p>解法2：借用java中的map实现，遍历字符串数组，将字符串以key值保存在map中，并以该单词的出现次数作为value值。如果想要某个单词的出现次数，直接用get(key)就可以了。</p>
+<p>解法3：字典树，字典树以一个根节点开始，每个节点下可以有26个字节点，分别对应26个字母（如果字符全是小写或者大写字母）。那么如果要某个字符串，就将该字符串在字典树中递归下去，找到代表最后一个字母的叶子结点，如果找得到（不为空），则说明该字符串是存在的。解用该思想，我们只需要为每个结点添加一个计数值，输出字符串最后一个字母的计数值即可。字典树结构如下：</p>
+<p><img src="/2021/03/11/字典树/markdown\字典树\1.png" srcset="/img/loading.gif" alt="image-20210311200939810"></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>字典树一般在数据结构中不会指出，是一种知名度不高的数据结构，但是对于某些实现还是很有作用的。字典树又被称为基数树和前缀树，顾名思义，根据基数（前缀）来查找的树结构。节点在树中的位置定义了与该节点相关联的键，这与二叉搜索树不同，二叉搜索树中节点存储的键只对应于该节点。节点所有后代具有相同的前缀，根节点关联空字符串。</p>
+<h2 id="具体代码"><a href="#具体代码" class="headerlink" title="具体代码"></a>具体代码</h2><p>以引例为例子：</p>
+<p>通过字典树思想来思想该例子的代码如下：</p>
+<pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WordsFrequency</span> </span>&#123;
+    <span class="hljs-comment">//字典树结构，count复杂计算每个字母出现的次数，用数组保存子节点。</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Trie</span> </span>&#123;
+        <span class="hljs-keyword">int</span> count = <span class="hljs-number">0</span>;
+        Trie[] t = <span class="hljs-keyword">new</span> Trie[<span class="hljs-number">26</span>];
+        <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Trie</span><span class="hljs-params">()</span></span>&#123;&#125;;
+    &#125;
+    <span class="hljs-comment">//创建根节点</span>
+    Trie root = <span class="hljs-keyword">new</span> Trie();
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">WordsFrequency</span><span class="hljs-params">(String[] book)</span> </span>&#123;
+        <span class="hljs-comment">//遍历字符数组</span>
+        <span class="hljs-keyword">for</span> (String s:book)
+            &#123;
+                <span class="hljs-comment">//对于每次遍历都从字典树的根节点开始</span>
+                Trie trie = root;
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span> ch: s.toCharArray()
+                     ) &#123;
+                    <span class="hljs-comment">//数组索引对应字母，而数组内存的值代表该字母出现的次数</span>
+                    <span class="hljs-keyword">if</span>(trie.t[ch-<span class="hljs-string">'a'</span>]==<span class="hljs-keyword">null</span>)&#123;
+                        <span class="hljs-comment">//若没有，则创建新的节点</span>
+                        trie.t[ch-<span class="hljs-string">'a'</span>] = <span class="hljs-keyword">new</span> Trie();
+                    &#125;
+                    <span class="hljs-comment">//继续向树结构往下走</span>
+                    trie = trie.t[ch-<span class="hljs-string">'a'</span>];
+                    trie.count++;
+                &#125;
+            &#125;
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">get</span><span class="hljs-params">(String word)</span> </span>&#123;
+        <span class="hljs-comment">//拿到根结点</span>
+        Trie cur =root;
+        <span class="hljs-comment">//在字典树中遍历字符串，如果遍历过程断了（节点为null），则说明字典树不存在该字符串</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">char</span> c:word.toCharArray()
+             ) &#123;
+            <span class="hljs-keyword">if</span>(cur.t[c-<span class="hljs-string">'a'</span>]==<span class="hljs-keyword">null</span>)<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+            <span class="hljs-keyword">else</span>&#123;
+                cur = cur.t[c-<span class="hljs-string">'a'</span>];
+            &#125;
+        &#125;
+        <span class="hljs-comment">//返回最后一个字符串的计数，代表该字符串出现的次数。</span>
+        <span class="hljs-keyword">return</span> cur.count;
+        &#125;
+    &#125;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestDemo</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;
+        <span class="hljs-comment">//测试用例</span>
+        WordsFrequency wordsFrequency = <span class="hljs-keyword">new</span> WordsFrequency(<span class="hljs-keyword">new</span> String[]&#123;<span class="hljs-string">"wordsfrequency"</span>,<span class="hljs-string">"get"</span>,<span class="hljs-string">"get"</span>,<span class="hljs-string">"get"</span>,<span class="hljs-string">"get"</span>,<span class="hljs-string">"get"</span>,<span class="hljs-string">"hava"</span>,<span class="hljs-string">"hava"</span>&#125;);
+        System.out.println(wordsFrequency.get(<span class="hljs-string">"hava"</span>));
+        <span class="hljs-comment">//返回2</span>
+    &#125;
+&#125;</code></pre>
+<p>按照此代码，我们将根据字符串数组建立一个以数组模拟节点的字典树，该字典树的一个节点（数组中的一位）的索引代表了字符相对于‘a’的位置，也就是代表了哪个字母，而数组中的值代表了字符的出现次数。因此，通过字符串在字典树中遍历，输出最后一个字母的计数值，就是我们的需要的字符串出现次数。</p>
 
             </div>
             <hr>
@@ -281,7 +291,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/machine-learning/">machine learning</a>
+                      <a class="hover-with-bg" href="/categories/数据结构/">数据结构</a>
                     
                   </div>
                 
@@ -289,7 +299,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/book/">book</a>
+                      <a class="hover-with-bg" href="/tags/数据结构/">数据结构</a>
                     
                   </div>
                 
@@ -302,18 +312,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/10/23/西瓜书-第一章 绪论/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">西瓜书-第一章 绪论</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/23/Efficient and self-adaptive in-situ learning in multilayer memristor neural networks/">
-                        <span class="hidden-mobile">Efficient and self-adaptive in-situ learning in multilayer memristor neural networks</span>
+                      <a href="/2021/03/09/设计模式/">
+                        <span class="hidden-mobile">设计模式总结</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -515,7 +519,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "西瓜书-第二章 模型评估与选择&nbsp;",
+        "字典树介绍&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,
