@@ -16,7 +16,7 @@
   <meta name="description" content="作为一只小菜鸟，就要不断努力">
   <meta name="author" content="CodeBird">
   <meta name="keywords" content>
-  <title>jquery对象和js对象的转化 --- CodeBird</title>
+  <title>java读取XML文件 --- CodeBird</title>
 
   <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -150,8 +150,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2021-03-07 16:57" pubdate>
-      2021年3月7日 下午
+    <time datetime="2021-03-15 14:23" pubdate>
+      2021年3月15日 下午
     </time>
   </div>
 
@@ -161,7 +161,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      189 字
+      470 字
     </span>
   
 
@@ -171,7 +171,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      8
        分钟
     </span>
   
@@ -209,39 +209,103 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">jquery对象和js对象的转化</h1>
+            <h1 style="display: none">java读取XML文件</h1>
             
               <p class="note note-info">
                 
-                  本文最后更新于：8 天前
+                  本文最后更新于：几秒前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <p>jquery对象和js对象的转化<br><a id="more"></a><br>query对象只能使用jqury方法，不能使用js的方法，相反的，js对象也只能使用js的方法，如果js对象使用了jquery方法，那么浏览器就会报错。</p>
-<p>但是在一些特定的时候，我们就需要对jquery对象使用js的方法，此时就要用到两者对象之间的转化。</p>
-<p>jquery对象转化为js对象：</p>
-<p>1 var person = $(“div”);//这是一个jquer对象<br>2<br>3 var per1 = person[0];//此时的per1是一个js对象<br>4 var per2 = person.get(0);//此时的per2也是一个js对象<br>js对象转换为jquery对象：</p>
-<p>var fruit = getElementById(“wrap”);//这是一个js对象</p>
-<p>var fruit1 = $(“fruit”);//此时的fruit1是一个jquery对象<br>使用$可以将任何js对象转化为jquery对象。</p>
+              <h3 id="java读取xml文件的方法（w3c）"><a href="#java读取xml文件的方法（w3c）" class="headerlink" title="java读取xml文件的方法（w3c）"></a>java读取xml文件的方法（w3c）</h3><a id="more"></a>
+<p>xml文件如下：</p>
+<pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</span>
+<span class="hljs-comment">&lt;!-- Copyright w3school.com.cn --&gt;</span>
+<span class="hljs-comment">&lt;!-- W3School.com.cn bookstore example --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">bookstore</span>&gt;</span>
+    -<span class="hljs-tag">&lt;<span class="hljs-name">book</span> <span class="hljs-attr">category</span>=<span class="hljs-string">"children"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>Harry Potter<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span>J K. Rowling<span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">year</span>&gt;</span>2005<span class="hljs-tag">&lt;/<span class="hljs-name">year</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">price</span>&gt;</span>29.99<span class="hljs-tag">&lt;/<span class="hljs-name">price</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">book</span>&gt;</span>
+    -<span class="hljs-tag">&lt;<span class="hljs-name">book</span> <span class="hljs-attr">category</span>=<span class="hljs-string">"cooking"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>Everyday Italian<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span>Giada De Laurentiis<span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">year</span>&gt;</span>2005<span class="hljs-tag">&lt;/<span class="hljs-name">year</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">price</span>&gt;</span>30.00<span class="hljs-tag">&lt;/<span class="hljs-name">price</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">book</span>&gt;</span>
+    -<span class="hljs-tag">&lt;<span class="hljs-name">book</span> <span class="hljs-attr">category</span>=<span class="hljs-string">"web"</span> <span class="hljs-attr">cover</span>=<span class="hljs-string">"paperback"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>Learning XML<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span>Erik T. Ray<span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">year</span>&gt;</span>2003<span class="hljs-tag">&lt;/<span class="hljs-name">year</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">price</span>&gt;</span>39.95<span class="hljs-tag">&lt;/<span class="hljs-name">price</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">book</span>&gt;</span>
+    -<span class="hljs-tag">&lt;<span class="hljs-name">book</span> <span class="hljs-attr">category</span>=<span class="hljs-string">"web"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">title</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">"en"</span>&gt;</span>XQuery Kick Start<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span>James McGovern<span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span>Per Bothner<span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span>Kurt Cagle<span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span>James Linn<span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">author</span>&gt;</span>Vaidyanathan Nagarajan<span class="hljs-tag">&lt;/<span class="hljs-name">author</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">year</span>&gt;</span>2003<span class="hljs-tag">&lt;/<span class="hljs-name">year</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">price</span>&gt;</span>49.99<span class="hljs-tag">&lt;/<span class="hljs-name">price</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">book</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">bookstore</span>&gt;</span></code></pre>
+<p>第一种使用w3c的工具，具体代码如下：</p>
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestDemo</span> </span>&#123;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;
+        <span class="hljs-comment">//测试用例</span>
+        <span class="hljs-comment">//WordsFrequency wordsFrequency = new WordsFrequency(new String[]&#123;"wordsfrequency","get","get","get","get","get","hava","hava"&#125;);</span>
+        <span class="hljs-comment">//int count=0;</span>
+        <span class="hljs-comment">/**
+         * java以w3c.DOM方式读取xml文件
+         */</span>
+        String soucePath = <span class="hljs-string">"src\\book1.xml"</span>;
+        org.w3c.dom.Document doc = useDomReadXml(soucePath);
+        <span class="hljs-comment">//读取xml内部节点集合w3c</span>
+        org.w3c.dom.NodeList nlst = doc.getElementsByTagName(<span class="hljs-string">"book"</span>);
+        <span class="hljs-comment">//遍历集合内容</span>
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; ((org.w3c.dom.NodeList) nlst).getLength(); i++) &#123;
+            String title = doc.getElementsByTagName(<span class="hljs-string">"title"</span>).item(i).getFirstChild().getNodeValue();
+            String creater = doc.getElementsByTagName(<span class="hljs-string">"author"</span>).item(i).getFirstChild().getNodeValue();
+            String year = doc.getElementsByTagName(<span class="hljs-string">"year"</span>).item(i).getFirstChild().getNodeValue();
+            String price = doc.getElementsByTagName(<span class="hljs-string">"price"</span>).item(i).getFirstChild().getNodeValue();
+            System.err.println(<span class="hljs-string">"标题"</span>+ title);
+            System.err.println(<span class="hljs-string">"作者"</span>+creater);
+            System.err.println(<span class="hljs-string">"年份"</span>+ year);
+            System.err.println(<span class="hljs-string">"价格"</span>+ price);
+        &#125;
+    &#125;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Document <span class="hljs-title">useDomReadXml</span><span class="hljs-params">(String soucePath)</span></span>&#123;
+        File file = <span class="hljs-keyword">new</span> File(soucePath);
+        <span class="hljs-keyword">try</span> &#123;
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document doc = builder.parse(file);
+            <span class="hljs-keyword">return</span> doc;
+        &#125; <span class="hljs-keyword">catch</span> (Exception e) &#123;
+            System.err.println(<span class="hljs-string">"读取该xml文件失败"</span>);
+            e.printStackTrace();
+        &#125;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+    &#125;
+&#125;</code></pre>
+<p>效果如下：</p>
+<p><img src="/2021/03/15/java读取XML文件/blog\source\_posts\java读取XML文件\1.png" srcset="/img/loading.gif" alt="image-20210315142745731"></p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/前端/">前端</a>
-                    
-                  </div>
-                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/前端/">前端</a>
+                      <a class="hover-with-bg" href="/tags/java/">java</a>
                     
                   </div>
                 
@@ -254,18 +318,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/07/for-in-和-in-的用法/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">for in 和 in 的用法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/07/jquery独特的选择器/">
-                        <span class="hidden-mobile">jquery独特的选择器</span>
+                      <a href="/2021/03/11/字典树/">
+                        <span class="hidden-mobile">字典树介绍</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -469,7 +527,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "jquery对象和js对象的转化&nbsp;",
+        "java读取XML文件&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 50,
