@@ -218,8 +218,8 @@
               </p>
             
             <div class="markdown-body" id="post-body">
-              <p>相关命令<br>相关的常用hexo命令集<br><a id="more"></a><br><img src="/2020/03/28/相关命令/1.png" srcset="/img/loading.gif" alt="Git"><br><img src="/2020/03/28/相关命令/2.jpg" srcset="/img/loading.gif" alt="Git"></p>
-<p>##相关命令：<br>这篇文章主要是开启博客的书写历程，并记录一下相关博文的命令行<br>在hexo所在目录下，打开terminal，在命令行输入：<br><pre><code class="hljs undefined">hexo new a
+              <p>相关命令<br>相关的常用hexo命令集<br><a id="more"></a><br><img src="相关文件/1.png" srcset="/img/loading.gif" alt="Git"><br><img src="相关文件/2.jpg" srcset="/img/loading.gif" alt="Git"></p>
+<h2 id="相关命令："><a href="#相关命令：" class="headerlink" title="相关命令："></a>相关命令：</h2><p>这篇文章主要是开启博客的书写历程，并记录一下相关博文的命令行<br>在hexo所在目录下，打开terminal，在命令行输入：<br><pre><code class="hljs undefined">hexo new a
 hexo new draft b#草稿文件
 hexo<span class="hljs-built_in"> server </span>--draft#预览草稿文件
 hexo publish b#发布草稿文件</code></pre></p>
@@ -227,7 +227,6 @@ hexo publish b#发布草稿文件</code></pre></p>
 <pre><code>hexo g#生成静态文件
 hexo s -p 5000#启动服务器在5000端口，默认4000
 hexo d#hexo deploy 发布到github
-
 </code></pre><p>a是文章标题，也可以加上双引号,如“a”。</p>
 
             </div>
@@ -537,6 +536,45 @@ hexo d#hexo deploy 发布到github
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js"></script>
+
+  
 
 
 

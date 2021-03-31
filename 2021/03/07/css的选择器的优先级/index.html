@@ -213,7 +213,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：9 天前
+                  本文最后更新于：24 天前
                 
               </p>
             
@@ -225,8 +225,7 @@
 <p>.content div{}</p>
 <p>这个选择器有一个class，一个元素标签，所以这三位数就是011；</p>
 <p>再比如：</p>
-<p>#content div{}</p>
-<p>此时就是一个id，一个元素标签，此时就是101；</p>
+<h1 id="content-div"><a href="#content-div" class="headerlink" title="content div{}"></a>content div{}</h1><p>此时就是一个id，一个元素标签，此时就是101；</p>
 <p>说明第二个选择器是可以覆盖第一个的相同的属性的值的。</p>
 
             </div>
@@ -536,6 +535,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js"></script>
+
+  
 
 
 

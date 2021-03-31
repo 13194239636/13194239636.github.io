@@ -219,43 +219,41 @@
             
             <div class="markdown-body" id="post-body">
               <p>进制转换的问题：<br>主要用到的函数有：bin(),oct(),int(),hex()<br><a id="more"></a></p>
-<p>#其他进制转成十进制：</p>
-<p>#二进制转成十进制：<br><pre><code class="hljs undefined"><span class="hljs-keyword">int</span>(<span class="hljs-string">'100'</span>,<span class="hljs-number">2</span>)
+<h1 id="其他进制转成十进制："><a href="#其他进制转成十进制：" class="headerlink" title="其他进制转成十进制："></a>其他进制转成十进制：</h1><h1 id="二进制转成十进制："><a href="#二进制转成十进制：" class="headerlink" title="二进制转成十进制："></a>二进制转成十进制：</h1><pre><code class="hljs undefined"><span class="hljs-keyword">int</span>(<span class="hljs-string">'100'</span>,<span class="hljs-number">2</span>)
 <span class="hljs-meta">#结果为：4</span>
-<span class="hljs-meta">#注意输入的数值一定要是字符串的形式，第二个参数表示输入数值为二进制</span></code></pre></p>
-<p>#八进制转成十进制：<br><pre><code class="hljs undefined"><span class="hljs-keyword">int</span>(<span class="hljs-string">'04'</span>,<span class="hljs-number">8</span>)
+<span class="hljs-meta">#注意输入的数值一定要是字符串的形式，第二个参数表示输入数值为二进制</span></code></pre>
+<h1 id="八进制转成十进制："><a href="#八进制转成十进制：" class="headerlink" title="八进制转成十进制："></a>八进制转成十进制：</h1><pre><code class="hljs undefined"><span class="hljs-keyword">int</span>(<span class="hljs-string">'04'</span>,<span class="hljs-number">8</span>)
 <span class="hljs-meta">#结果为：4</span>
-<span class="hljs-meta">#注意输入的数值一定要是字符串的形式，第二个参数表示输入数值为八进制</span></code></pre></p>
-<p>#十六进制转成十进制：<br><pre><code class="hljs undefined"><span class="hljs-keyword">int</span>(<span class="hljs-string">'0x4'</span>,<span class="hljs-number">16</span>)
+<span class="hljs-meta">#注意输入的数值一定要是字符串的形式，第二个参数表示输入数值为八进制</span></code></pre>
+<h1 id="十六进制转成十进制："><a href="#十六进制转成十进制：" class="headerlink" title="十六进制转成十进制："></a>十六进制转成十进制：</h1><pre><code class="hljs undefined"><span class="hljs-keyword">int</span>(<span class="hljs-string">'0x4'</span>,<span class="hljs-number">16</span>)
 <span class="hljs-meta">#结果为：4</span>
-<span class="hljs-meta">#注意输入的数值一定要是字符串的形式，第二个参数表示输入数值为十六进制</span></code></pre></p>
-<p>#十进制转成二进制：<br><pre><code class="hljs undefined">bin(int('<span class="hljs-number">4</span>',<span class="hljs-number">10</span>))
+<span class="hljs-meta">#注意输入的数值一定要是字符串的形式，第二个参数表示输入数值为十六进制</span></code></pre>
+<h1 id="十进制转成二进制："><a href="#十进制转成二进制：" class="headerlink" title="十进制转成二进制："></a>十进制转成二进制：</h1><pre><code class="hljs undefined">bin(int('<span class="hljs-number">4</span>',<span class="hljs-number">10</span>))
 #或者
 bin(<span class="hljs-number">4</span>)
 #结果为：<span class="hljs-number">0b100</span>
-#<span class="hljs-number">0b</span>表示二进制，如果想要截取，可以用[<span class="hljs-number">2</span>:]</code></pre></p>
-<p>#十进制转成八进制：<br><pre><code class="hljs undefined">oct(<span class="hljs-keyword">int</span>(<span class="hljs-string">'4'</span>,<span class="hljs-number">10</span>))
+#<span class="hljs-number">0b</span>表示二进制，如果想要截取，可以用[<span class="hljs-number">2</span>:]</code></pre>
+<h1 id="十进制转成八进制："><a href="#十进制转成八进制：" class="headerlink" title="十进制转成八进制："></a>十进制转成八进制：</h1><pre><code class="hljs undefined">oct(<span class="hljs-keyword">int</span>(<span class="hljs-string">'4'</span>,<span class="hljs-number">10</span>))
 <span class="hljs-meta">#或者</span>
 oct(<span class="hljs-number">4</span>)
 <span class="hljs-meta">#结果为：04</span>
-<span class="hljs-meta">#0表示八进制</span></code></pre></p>
-<p>#十进制转成十六进制：<br><pre><code class="hljs undefined">hex(<span class="hljs-keyword">int</span>(<span class="hljs-string">'4'</span>,<span class="hljs-number">10</span>))
+<span class="hljs-meta">#0表示八进制</span></code></pre>
+<h1 id="十进制转成十六进制："><a href="#十进制转成十六进制：" class="headerlink" title="十进制转成十六进制："></a>十进制转成十六进制：</h1><pre><code class="hljs undefined">hex(<span class="hljs-keyword">int</span>(<span class="hljs-string">'4'</span>,<span class="hljs-number">10</span>))
 <span class="hljs-meta">#或者</span>
 hex(<span class="hljs-number">4</span>)
 <span class="hljs-meta">#结果为：0x4</span>
-<span class="hljs-meta">#0x表示十六进制</span></code></pre></p>
-<p>#zfill函数：<br>str.zfill(width)<br>字符串扩展函数。width为扩展的宽度,扩张之后字符串右对齐，左侧填充0,和rjust(width,’0’)相似<br><pre><code class="hljs undefined"><span class="hljs-string">"123"</span>.zfill(<span class="hljs-number">5</span>)
+<span class="hljs-meta">#0x表示十六进制</span></code></pre>
+<h1 id="zfill函数："><a href="#zfill函数：" class="headerlink" title="zfill函数："></a>zfill函数：</h1><p>str.zfill(width)<br>字符串扩展函数。width为扩展的宽度,扩张之后字符串右对齐，左侧填充0,和rjust(width,’0’)相似<br><pre><code class="hljs undefined"><span class="hljs-string">"123"</span>.zfill(<span class="hljs-number">5</span>)
 #结果为：<span class="hljs-number">00123</span>        
 <span class="hljs-string">"123"</span>.rjust(<span class="hljs-number">5</span>,'<span class="hljs-number">2</span>'))
 #结果为：<span class="hljs-number">22123</span>  
 <span class="hljs-string">"123"</span>.ljust(<span class="hljs-number">5</span>,'<span class="hljs-number">2</span>'))
 #结果为：<span class="hljs-number">12322</span></code></pre></p>
-<p>#列表逆置特殊方法：<br><pre><code class="hljs undefined"><span class="hljs-keyword">list</span>=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]
+<h1 id="列表逆置特殊方法："><a href="#列表逆置特殊方法：" class="headerlink" title="列表逆置特殊方法："></a>列表逆置特殊方法：</h1><pre><code class="hljs undefined"><span class="hljs-keyword">list</span>=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]
 <span class="hljs-keyword">print</span>(<span class="hljs-keyword">list</span>[::<span class="hljs-number">-1</span>])
 <span class="hljs-comment">#输出[5,4,3,2,1],表示所有列表元素逆置</span>
 <span class="hljs-keyword">print</span>(<span class="hljs-keyword">list</span>[<span class="hljs-number">4</span>:<span class="hljs-number">2</span>:<span class="hljs-number">-1</span>])
-<span class="hljs-comment">#输出[5,4],表示从下标为4到2(不包括2)的元素逆置</span></code></pre></p>
-
+<span class="hljs-comment">#输出[5,4],表示从下标为4到2(不包括2)的元素逆置</span></code></pre>
             </div>
             <hr>
             <div>
@@ -549,6 +547,45 @@ hex(<span class="hljs-number">4</span>)
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js"></script>
+
+  
 
 
 

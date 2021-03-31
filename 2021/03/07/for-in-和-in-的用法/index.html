@@ -213,14 +213,13 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：9 天前
+                  本文最后更新于：24 天前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
               <p>for in 和 in 的用法<br><a id="more"></a></p>
-<p>###1.For…In 声明用于对数组或者对象的属性（可枚举的，即包括实例中的属性，也包括原型中的可枚举属性）进行循环/迭代操作。</p>
-<p>对于数组 ，迭代出来的是数组元 素，对于对象 ，迭代出来的是对象的属性；<br><pre><code class="hljs undefined"><span class="hljs-symbol">1 </span><span class="hljs-keyword">for</span>(var i=<span class="hljs-number">0</span>,<span class="hljs-keyword">len</span>=a.length;i&lt;<span class="hljs-keyword">len</span>;i++)&#123;
+<h3 id="1-For…In-声明用于对数组或者对象的属性（可枚举的，即包括实例中的属性，也包括原型中的可枚举属性）进行循环-迭代操作。"><a href="#1-For…In-声明用于对数组或者对象的属性（可枚举的，即包括实例中的属性，也包括原型中的可枚举属性）进行循环-迭代操作。" class="headerlink" title="1.For…In 声明用于对数组或者对象的属性（可枚举的，即包括实例中的属性，也包括原型中的可枚举属性）进行循环/迭代操作。"></a>1.For…In 声明用于对数组或者对象的属性（可枚举的，即包括实例中的属性，也包括原型中的可枚举属性）进行循环/迭代操作。</h3><p>对于数组 ，迭代出来的是数组元 素，对于对象 ，迭代出来的是对象的属性；<br><pre><code class="hljs undefined"><span class="hljs-symbol">1 </span><span class="hljs-keyword">for</span>(var i=<span class="hljs-number">0</span>,<span class="hljs-keyword">len</span>=a.length;i&lt;<span class="hljs-keyword">len</span>;i++)&#123;
 <span class="hljs-symbol">2 </span>alert(a[i]);
 <span class="hljs-symbol">3 </span>&#125;</code></pre></p>
 <p>以上代码完全可以用for  in代替：<br><pre><code class="hljs undefined"><span class="hljs-symbol">1 </span>var a = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>];
@@ -267,7 +266,7 @@
 <span class="hljs-number">12</span>     <span class="hljs-built_in">document</span>.write(result1)+<span class="hljs-string">"&lt;br/&gt;"</span>;</code></pre></p>
 <p>输出为：</p>
 <pre><code>1 false  
-2 true 
+2 true
 </code></pre>
             </div>
             <hr>
@@ -576,6 +575,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js"></script>
+
+  
 
 
 

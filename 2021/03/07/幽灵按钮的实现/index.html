@@ -213,7 +213,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：9 天前
+                  本文最后更新于：24 天前
                 
               </p>
             
@@ -224,19 +224,19 @@
 <p>幽灵按钮有时候也被称为“空按钮”，通常会被设计得比普通的按钮更大一些。而它们之所以被命名为“幽灵”，是应为这种按钮如同鬼魂一样透明，但是独特的造型会立刻吸引用户的注意力——正如同故事中鬼魂一样抓人眼球。</p>
 <p>虽然你可能在大量的网站中看到幽灵按钮，但是并非所有的网站都和幽灵按钮相得益彰。真正适合幽灵按钮的是那些使用极简风和扁平风的网站和APP，使用大图背景的网站也与之非常搭。</p>
 <p>幽灵按钮的使用实例<br>Bilderphoto.com</p>
-<p><img src="/2021/03/07/幽灵按钮的实现/1.png" srcset="/img/loading.gif" alt="c"></p>
+<p><img src="幽灵按钮的实现/1.png" srcset="/img/loading.gif" alt="c"></p>
 <p>第一个例子就是 Bilderphoto.com，典型的大图背景设计。</p>
 <p>幽灵按钮置于网站正中央，吸引用户去点击，以发现更多的内容。但是在我看来，幽灵按钮并没有得到很好的安置。为了对比度，幽灵按钮的边框和文字均使用了白色，可是背景中的女孩也是一身白，这使得按钮中的单词“imagemaking”并不完全符合对比度的需求，影响了可读性。当然，积极的一面在于，你可以通过刷新看到其他的图片。</p>
 <p>UnionRoom</p>
-<p><img src="/2021/03/07/幽灵按钮的实现/2.png" srcset="/img/loading.gif" alt="c"></p>
+<p><img src="幽灵按钮的实现/2.png" srcset="/img/loading.gif" alt="c"></p>
 <p>接下来的这张图片来自于UnionRoom的网站，这是一家网页设计和开发公司。</p>
 <p>比起简单设置一个图片背景，他们选择了更有逼格的方式——使用半色调的视频来作为背景。他们的服务展示是通过网页中的这套扁平风的动效和界面来实现的。如果你想对他们的服务了解更多的话，点击底部的幽灵按钮就可以了。</p>
 <p>不同于上一个例子，UnionRoom的网站背景色调更暗，使得内容显得更加突出。这个幽灵按钮符合它该有的所有特色，不突兀也不多余，合理和均衡。</p>
 <p>Worldbackupday</p>
-<p><img src="/2021/03/07/幽灵按钮的实现/3.png" srcset="/img/loading.gif" alt="c"></p>
+<p><img src="幽灵按钮的实现/3.png" srcset="/img/loading.gif" alt="c"></p>
 <p>最后这个案例是worldbackupday.com，使用了典型的扁平化设计。</p>
-<p>我用的是<a href="http://www.iuvo.si/的幽灵按钮类型来做的，具体的可以上它的网站看交互效果：" target="_blank" rel="noopener">www.iuvo.si/的幽灵按钮类型来做的，具体的可以上它的网站看交互效果：</a></p>
-<p><img src="/2021/03/07/幽灵按钮的实现/4.png" srcset="/img/loading.gif" alt="c"></p>
+<p>我用的是www.iuvo.si/的幽灵按钮类型来做的，具体的可以上它的网站看交互效果：</p>
+<p><img src="幽灵按钮的实现/4.png" srcset="/img/loading.gif" alt="c"></p>
 <p>首先我去千库网随便找了3个png的图片充当那3个图片。然后抠下了那个小箭头。</p>
 <p>首先进行了基本的布局，用一个大的container包围着3个小box，然后每个小box里面放一个图片和一个按钮。基本html结果如下：</p>
 <pre><code class="hljs undefined"> 1 <span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
@@ -439,7 +439,7 @@
 149     <span class="hljs-attribute">height</span>:<span class="hljs-number">57px</span>;
 150 &#125;</code></pre>
 <p>效果图：</p>
-<p><img src="/2021/03/07/幽灵按钮的实现/4.png" srcset="/img/loading.gif" alt="c"></p>
+<p><img src="幽灵按钮的实现/4.png" srcset="/img/loading.gif" alt="c"></p>
 <p>交互效果就不展示了。感兴趣的可以去原网站观看。</p>
 
             </div>
@@ -749,6 +749,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js"></script>
+
+  
 
 
 

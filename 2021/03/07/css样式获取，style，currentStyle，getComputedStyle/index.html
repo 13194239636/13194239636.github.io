@@ -213,7 +213,7 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：9 天前
+                  本文最后更新于：24 天前
                 
               </p>
             
@@ -246,22 +246,22 @@
     <span class="hljs-built_in">console</span>.log(oWrap.currentStyle.width);
     <span class="hljs-built_in">console</span>.log(getComputedStyle(oWrap,<span class="hljs-literal">null</span>).width);
 &#125;</code></pre></p>
-<p>得到的结果是：<br><img src="/2021/03/07/css样式获取，style，currentStyle，getComputedStyle/1.png" srcset="/img/loading.gif" alt="c"></p>
+<p>得到的结果是：<br><img src="css样式获取，style，currentStyle，getComputedStyle/1.png" srcset="/img/loading.gif" alt="c"></p>
 <p>把报错的，也就是currentStyle注释掉，就会得到：</p>
-<p><img src="/2021/03/07/css样式获取，style，currentStyle，getComputedStyle/2.png" srcset="/img/loading.gif" alt="c"></p>
+<p><img src="css样式获取，style，currentStyle，getComputedStyle/2.png" srcset="/img/loading.gif" alt="c"></p>
 <p>情理之中。因为currentStyle时不兼容谷歌的</p>
 <p> 然后改成内嵌样式的话：</p>
-<p><img src="/2021/03/07/css样式获取，style，currentStyle，getComputedStyle/3.png" srcset="/img/loading.gif" alt="c"></p>
+<p><img src="css样式获取，style，currentStyle，getComputedStyle/3.png" srcset="/img/loading.gif" alt="c"></p>
 <p>结果也在意料之中：</p>
-<p><img src="/2021/03/07/css样式获取，style，currentStyle，getComputedStyle/4.png" srcset="/img/loading.gif" alt="c"></p>
+<p><img src="css样式获取，style，currentStyle，getComputedStyle/4.png" srcset="/img/loading.gif" alt="c"></p>
 <p>再加上注释了，结果是：</p>
-<p><img src="/2021/03/07/css样式获取，style，currentStyle，getComputedStyle/5.png" srcset="/img/loading.gif" alt="c"></p>
+<p><img src="css样式获取，style，currentStyle，getComputedStyle/5.png" srcset="/img/loading.gif" alt="c"></p>
 <p>外部样式表的话，结果也是一样的。</p>
 <p>然后IE的话，</p>
 <p>IE8的话是不支持getComputedStyle。而IE9+是支持的。</p>
-<p><img src="/2021/03/07/css样式获取，style，currentStyle，getComputedStyle/6.png" srcset="/img/loading.gif" alt="c"><br>外部样式IE8：</p>
-<p><img src="/2021/03/07/css样式获取，style，currentStyle，getComputedStyle/7.png" srcset="/img/loading.gif" alt="c"><br>外部样式IE9：</p>
-<p><img src="/2021/03/07/css样式获取，style，currentStyle，getComputedStyle/8.png" srcset="/img/loading.gif" alt="c"></p>
+<p><img src="css样式获取，style，currentStyle，getComputedStyle/6.png" srcset="/img/loading.gif" alt="c"><br>外部样式IE8：</p>
+<p><img src="css样式获取，style，currentStyle，getComputedStyle/7.png" srcset="/img/loading.gif" alt="c"><br>外部样式IE9：</p>
+<p><img src="css样式获取，style，currentStyle，getComputedStyle/8.png" srcset="/img/loading.gif" alt="c"></p>
 <p>最后完全符合结果。</p>
 <p>结论：</p>
 <p>1.style只支持行内样式，对于其他样式引入方式一律不好用。</p>
@@ -579,6 +579,45 @@
 
 
 
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js"></script>
+
+  
 
 
 
