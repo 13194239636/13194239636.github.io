@@ -1,1 +1,677 @@
-<!doctype html><html lang="en"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="shortcut icon" href="/static/favicon.ico"><title>CodeBird</title><link href="/static/css/app.c64eadfc8d3abfc9d85514dba4054813.css" rel="stylesheet"></head><body><div id="app"></div><script type="text/javascript" src="/static/js/manifest.992b63bf2abbf3194771.js"></script><script type="text/javascript" src="/static/js/vendor.e12dc8c9af1f7aa12436.js"></script><script type="text/javascript" src="/static/js/app.bc036f9167871d39aecf.js"></script></body></html>
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="作为一只小菜鸟，就要不断努力">
+  <meta name="author" content="CodeBird">
+  <meta name="keywords" content>
+  <title>西瓜书-第二章 模型评估与选择 --- CodeBird</title>
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
+  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+
+  
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css">
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/color-schema.js"></script>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">&nbsp;<strong>CodeBrid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/thy.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-10-23 20:29" pubdate>
+      2020年10月23日 晚上
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      19
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">西瓜书-第二章 模型评估与选择</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：5 个月前
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="西瓜书-第二章-模型评估与选择"><a href="#西瓜书-第二章-模型评估与选择" class="headerlink" title="西瓜书-第二章 模型评估与选择"></a>西瓜书-第二章 模型评估与选择</h1><p>在训练完一个模型之后，所得到的模型在新的数据集上进行测试，所得的误差该如何定量和评估将是这一章讲解的内容。</p>
+<h2 id="经验误差与过拟合"><a href="#经验误差与过拟合" class="headerlink" title="经验误差与过拟合"></a>经验误差与过拟合</h2><p>错误率：</p>
+<script type="math/tex; mode=display">
+E=a/m</script><p>精度：</p>
+<script type="math/tex; mode=display">
+1-a/m</script><p>将实际预测输出与样本的真实输出之间的差异称为<strong>误差</strong>，在训练集上的误差称为<strong>训练误差</strong>，或者<strong>经验误差</strong>，在新样本上的误差称为<strong>泛化误差</strong>。</p>
+<p><strong>欠拟合</strong>：对样本学习不足，例如有些一般性质没有学号。</p>
+<p><strong>过拟合</strong>：对样本学习太好，导致一些样本的特色性质被学会。<em>（关键障碍）</em></p>
+<p><img src="//yoursite.com/2020/10/23/西瓜书-第二章 模型评估与选择/image-20201009170957775.png" srcset="/img/loading.gif" alt="image-20201020090816503"></p>
+<h2 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h2><p>既然知道了在训练或测试时候会存在误差，那么该如何评估呢，一般<strong>利用在训练集中划分出一部分测试集（验证集）用以作为泛化误差的泛化。</strong></p>
+<p>那么新的问题又来了，如何划分呢？</p>
+<h5 id="留出法"><a href="#留出法" class="headerlink" title="留出法"></a>留出法</h5><p>将训练集按照一定的比例留出测试集，即将数据集D划分成两个互斥的集合，其中一个作为训练集S，另一个作为测试集T，即</p>
+<script type="math/tex; mode=display">
+D=S∪T,S∩T=空集</script><p>用T来评估其测试误差，作为对泛化误差的估计。</p>
+<p>但留出法需要注意的是：</p>
+<ol>
+<li><p>数据集的划分要尽可能保持数据分布的一致性，避免因数据划分过程引入额外的偏差而对最终结果产生影响。</p>
+</li>
+<li><p>划分比例有很多，该如何确定划分比例也是一个问题，一般是采用若干次随机划分，重复进行实验评估后取平均值作为留出法的评估结果。</p>
+</li>
+<li><p>另外，若训练集S包含了数据集的绝大多数样本，则训练出的模型可能更接近于数据集训练出的模型，但测试集T比较小，导致评估结果不准确。反之，若让测试集T包含较多样本，那么训练集S与数据集D差别太大，两者训练出来的模型可能有较大差别。<strong>目前一般用2/3~4/5的样本用于训练，剩余样本用于测试。</strong></p>
+<h5 id="交叉验证法"><a href="#交叉验证法" class="headerlink" title="交叉验证法"></a>交叉验证法</h5></li>
+</ol>
+<p>交叉验证法先将数据集D划分为<em>k</em>个大小相等的互斥子集，即</p>
+<script type="math/tex; mode=display">
+D=D1∪D2∪D3...Dk,其中Di∩Dj=空集</script><p>同时，需要保持数据的一致性。然后每次用<em>k-1</em>个子集的并集作为训练集，余下的那个子集作为测试集；这样可以获得<em>K</em>组训练/测试集，从而可进行k次训练和测试，返回k次训练得到结果的均值。如图，是一个10折交叉验证的示意图：</p>
+<p><img src="//yoursite.com/2020/10/23/西瓜书-第二章 模型评估与选择/image-20201020092551162.png" srcset="/img/loading.gif" alt="image-20201020092551162"></p>
+<p>最常见的就是10次10折交叉验证。</p>
+<h5 id="自助法"><a href="#自助法" class="headerlink" title="自助法"></a>自助法</h5><p>目前来看，留出法和交叉验证法都因为保留了一部分样本用于测试，因此实际评估的模型所用的训练集S比数据集D小，必然导致训练样本规模不同而导致的估计偏差。因此，自助法出现了：</p>
+<p>对数据集D进行采样，每次采用一个样本，并返回，直至采用所得样本数据集（D‘）大小与源数据集D相同大小。可以看出，一些样本可能会多次出现在D’中，而有一些样本则不会出现。那么样本在m次采样中始终不被采到的概率是（1-1/m）的m次方，取极限就是：</p>
+<p><img src="//yoursite.com/2020/10/23/西瓜书-第二章 模型评估与选择/image-20201020093934704.png" srcset="/img/loading.gif" alt="image-20201020093934704"></p>
+<p>也就是说，初始数据集中有约36.8%的样本未出现在采样数据集D‘中，于是可以将D’用作训练集，D\D’用作测试集，这样，实际评估的模型与期望评估的模型都使用了相同大小的训练样本，而我们仍然有数据总量的1/3没出现在训练集中，这些就可以用作测试集，亦称<strong>“包外估计”</strong></p>
+<p>但是需要注意的是，自助法在数据集较小，难以有效划分训练/测试集时很有用，此外，这种可以从初始数据集中产生多个不同的训练集的方法对集成学习有很大好处。但是，自助法产生的数据集改变了初始数据集的分布，会引入估计偏差，因此，在初始数据量够大的情况下，一般采用留出或者交叉验证法更有效。</p>
+<h2 id="性能度量"><a href="#性能度量" class="headerlink" title="性能度量"></a>性能度量</h2><p>目前分类任务最常用的两种性能度量是错误率和精度。但这两个指标并不能完全评判模型，需要其他指标，也就有了以下三个指标：</p>
+<ol>
+<li><p><strong>查准率</strong>：</p>
+<script type="math/tex; mode=display">
+P=TP/(TP+FP)</script></li>
+<li><p>查全率:</p>
+<script type="math/tex; mode=display">
+R=TP/(TP+FN)</script></li>
+<li><p><strong>F1</strong>:</p>
+<script type="math/tex; mode=display">
+F1=（2*P*R）/(P+R)=（2*TP）/(样例总数+TP-TN)</script><p>其次，当把F1泛化之后，可以得到根据对查准率或者查全率的不同偏好，它定义为：</p>
+</li>
+</ol>
+<p><img src="//yoursite.com/2020/10/23/西瓜书-第二章 模型评估与选择/image-20201020154704736.png" srcset="/img/loading.gif" alt="image-20201020154704736"></p>
+<p>另外，P-R图是以P指标为横坐标，R指标为纵坐标，得到的更直观的性能评估，如果曲线A完全包含曲线B，则可以称曲线A所代表的模型优于曲线B的模型。若不是完全包含，则一般用平衡点（BEP）来度量孰好孰坏。它是查准率=查全率时的取值。</p>
+<p><strong>ROC与AUC</strong></p>
+<p>有一些模型是通过产生一系列实值或者概率预测来进行分类，通过将得到的实值在一个阈值内截断，大于阈值的判为正例，否则为反例。而阈值的好坏将决定模型的泛化性能。那么该如何评判多大的阈值会有怎样的泛化性能呢，ROC就出现了，ROC是从这个角度出发来研究学习器泛化性能好坏的有力工具。</p>
+<p>ROC：通过模型的预测结果对样例进行排序，按此顺序逐个把样本作为正例进行预测，每次计算出两个重要量的值，以它们为横纵坐标作图。</p>
+<p>ROC曲线的纵坐标是真正例率：</p>
+<script type="math/tex; mode=display">
+TPR=TP/(TP+FN)</script><p>而横轴是假正例率。</p>
+<script type="math/tex; mode=display">
+FPR = FP/（TN+FP）</script><p>AUC就是曲线包含的面积，一般用来判断ROC的优劣程度。</p>
+<p><img src="//yoursite.com/2020/10/23/西瓜书-第二章 模型评估与选择/image-20201020160540168.png" srcset="/img/loading.gif" alt="image-20201020160540168"></p>
+<p>另外，ROC只有在均等代价的情况下才有效，若是非均等代价的情况，则需要依靠<strong>代价曲线</strong>进行</p>
+<h2 id="比较检验"><a href="#比较检验" class="headerlink" title="比较检验"></a>比较检验</h2><p>获得性能指标之后如何度量呢？这也是一个问题。</p>
+<ol>
+<li><p>首先，我们希望比较的是泛化性能，然而通过实验评估方法我们获得的是测试集上的性能，两者的对比结果未必相同。</p>
+</li>
+<li><p>其次，测试集上的性能与测试集本身的选择有很大关系，不仅测试集大小，即使相同的测试集大小，包含不同的测试集样本的测试结果也可能不同。</p>
+</li>
+<li><p>很多机器学习算法具有一定的随机性，即便用相同的参数设置在同一个测试集上多次运行，其结果也会有可能不同。</p>
+<p>为方便讨论，本节默认以错误率为性能度量，用</p>
+</li>
+</ol>
+<script type="math/tex; mode=display">
+\epsilon</script><p>表示。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/machine-learning/">machine learning</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/book/">book</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/10/23/西瓜书-第一章 绪论/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">西瓜书-第一章 绪论</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/10/23/Efficient and self-adaptive in-situ learning in multilayer memristor neural networks/">
+                        <span class="hidden-mobile">Efficient and self-adaptive in-situ learning in multilayer memristor neural networks</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "pMu6qdvVs0oIKPDGQ6Rh9uV0-gzGzoHsz",
+          app_key: "LyUkwvTfVqFOAXak26nu6HTF",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="/js/debouncer.js"></script>
+<script src="/js/main.js"></script>
+
+<!-- Plugins -->
+
+
+  
+    
+      <script src="/js/lazyload.js"></script>
+    
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+  <script src="/js/clipboard-use.js"></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <script src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "西瓜书-第二章 模型评估与选择&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 50,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>

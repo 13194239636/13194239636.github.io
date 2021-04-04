@@ -1,1 +1,655 @@
-<!doctype html><html lang="en"><head><meta name="generator" content="Hexo 3.8.0"><meta charset="UTF-8"><meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><link rel="shortcut icon" href="/static/favicon.ico"><title>CodeBird</title><link href="/static/css/app.c64eadfc8d3abfc9d85514dba4054813.css" rel="stylesheet"></head><body><div id="app"></div><script type="text/javascript" src="/static/js/manifest.992b63bf2abbf3194771.js"></script><script type="text/javascript" src="/static/js/vendor.e12dc8c9af1f7aa12436.js"></script><script type="text/javascript" src="/static/js/app.bc036f9167871d39aecf.js"></script></body></html>
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="作为一只小菜鸟，就要不断努力">
+  <meta name="author" content="CodeBird">
+  <meta name="keywords" content>
+  <title>for in 和 in 的用法 --- CodeBird</title>
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+
+
+  <link rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css">
+  <link rel="stylesheet" href="/lib/hint/hint.min.css">
+
+  
+    
+    <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css">
+  
+
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_6peoq002giu.css">
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_pjno9b9zyxs.css">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script src="/js/utils.js"></script>
+  <script src="/js/color-schema.js"></script>
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">&nbsp;<strong>CodeBrid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner intro-2" id="background" parallax=true
+         style="background: url('/img/thy.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container page-header text-center fade-in-up">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-03-07 16:58" pubdate>
+      2021年3月7日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      610 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">for in 和 in 的用法</h1>
+            
+              <p class="note note-info">
+                
+                  本文最后更新于：36 分钟前
+                
+              </p>
+            
+            <div class="markdown-body" id="post-body">
+              <p>for in 和 in 的用法<br><a id="more"></a></p>
+<h3 id="1-For…In-声明用于对数组或者对象的属性（可枚举的，即包括实例中的属性，也包括原型中的可枚举属性）进行循环-迭代操作。"><a href="#1-For…In-声明用于对数组或者对象的属性（可枚举的，即包括实例中的属性，也包括原型中的可枚举属性）进行循环-迭代操作。" class="headerlink" title="1.For…In 声明用于对数组或者对象的属性（可枚举的，即包括实例中的属性，也包括原型中的可枚举属性）进行循环/迭代操作。"></a>1.For…In 声明用于对数组或者对象的属性（可枚举的，即包括实例中的属性，也包括原型中的可枚举属性）进行循环/迭代操作。</h3><p>对于数组 ，迭代出来的是数组元 素，对于对象 ，迭代出来的是对象的属性；<br><pre><code class="hljs js"><span class="hljs-number">1</span> <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>,len=a.length;i&lt;len;i++)&#123;
+<span class="hljs-number">2</span> alert(a[i]);
+<span class="hljs-number">3</span> &#125;</code></pre></p>
+<p>以上代码完全可以用for  in代替：<br><pre><code class="hljs javascript"><span class="hljs-number">1</span> <span class="hljs-keyword">var</span> a = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"c"</span>];
+<span class="hljs-number">2</span> <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> el <span class="hljs-keyword">in</span> a)&#123;
+<span class="hljs-number">3</span> alert(a[el]);<span class="hljs-comment">//输出为a,b,c</span>
+<span class="hljs-number">4</span> &#125;</code></pre></p>
+<p>但需要迭代操作的是对象的时候，简单的for循环就不一定奏效了，最好用for in：</p>
+<pre><code class="hljs javascript"><span class="hljs-number">1</span> <span class="hljs-keyword">var</span> obj = &#123;  
+<span class="hljs-number">2</span>     w: <span class="hljs-string">"wen"</span>,  
+<span class="hljs-number">3</span>     j: <span class="hljs-string">"jian"</span>,  
+<span class="hljs-number">4</span>     b: <span class="hljs-string">"bao"</span>  
+<span class="hljs-number">5</span> &#125;  
+<span class="hljs-number">6</span> <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> v <span class="hljs-keyword">in</span> obj)&#123;  
+<span class="hljs-number">7</span>   <span class="hljs-built_in">document</span>.write(v)+<span class="hljs-string">"&lt;br/&gt;"</span>;  
+<span class="hljs-number">8</span>  &#125;</code></pre>
+<p>输出为：<br><pre><code class="hljs javascript"><span class="hljs-number">1</span>     w  
+<span class="hljs-number">2</span>     j  
+<span class="hljs-number">3</span>     b</code></pre></p>
+<p>一个对象是否可以进行for in穷举，我们可以通过propertyIsEnumerable属性来判断，说明如下：<br>propertyIsEnumerable 属性 返回 Boolean 值，指出所指定的属性是否为一个对象的一部分以及该属性是否是可列举的。<br><pre><code class="hljs javascript"><span class="hljs-number">1</span> object.propertyIsEnumerable(proName)</code></pre></p>
+<p>参数<br>object<br>必选项。一个对象。 </p>
+<p>proName<br>必选项。一个属性名称的字符串值。注意是字符串的形式！！ </p>
+<p>说明<br>如果 proName 存在于 object 中且可以使用一个 For…In 循环穷举出来，那么 propertyIsEnumerable 属性返回 true。如果 object 不具有所指定的属性或者所指定的属性不是可列举的，那么 propertyIsEnumerable 属性返回 false。典型地，预定义的属性不是可列举的，而用户定义的属性总是可列举的。<br>propertyIsEnumerable 属性不考虑原型链中的对象。</p>
+<h3 id="2-判断对象是否为数组-对象的元素-属性："><a href="#2-判断对象是否为数组-对象的元素-属性：" class="headerlink" title="2.判断对象是否为数组/对象的元素/属性："></a>2.判断对象是否为数组/对象的元素/属性：</h3><p>格式：（变量 in 对象）……注意，，，<br>　　当“对象”为数组时，“变量”指的是数组的“索引”；</p>
+<p>　　当“对象”为对象是，“变量”指的是对象的“属性”（包括实例和原型中的可枚举属性）。</p>
+<p>数组示例：</p>
+<p>Js代码<br> <pre><code class="hljs javascript"><span class="hljs-number">1</span>     <span class="hljs-keyword">var</span> arr = [<span class="hljs-string">"a"</span>,<span class="hljs-string">"b"</span>,<span class="hljs-string">"2"</span>,<span class="hljs-string">"3"</span>,<span class="hljs-string">"str"</span>];  
+<span class="hljs-number">2</span>     <span class="hljs-keyword">var</span> result = (<span class="hljs-string">"b"</span> <span class="hljs-keyword">in</span> arr);  
+<span class="hljs-number">3</span>     <span class="hljs-keyword">var</span> result1 = (<span class="hljs-number">4</span> <span class="hljs-keyword">in</span> arr);  
+<span class="hljs-number">4</span>     <span class="hljs-built_in">document</span>.write(result+<span class="hljs-string">"&lt;br&gt;"</span>);  
+<span class="hljs-number">5</span>     <span class="hljs-built_in">document</span>.write(result1+<span class="hljs-string">"&lt;br&gt;"</span>);</code></pre></p>
+<p> 输出为：<br> <pre><code class="hljs javascript"><span class="hljs-number">1</span> <span class="hljs-literal">false</span>  
+<span class="hljs-number">2</span> <span class="hljs-literal">true</span></code></pre></p>
+<p> 对象示例：<br>Js代码<br><pre><code class="hljs javascript"> <span class="hljs-number">1</span>     <span class="hljs-keyword">var</span> obj=&#123;  
+ <span class="hljs-number">2</span>              w:<span class="hljs-string">"wen"</span>,  
+ <span class="hljs-number">3</span>              j:<span class="hljs-string">"jian"</span>,  
+ <span class="hljs-number">4</span>              b:<span class="hljs-string">"bao"</span>  
+ <span class="hljs-number">5</span>                
+ <span class="hljs-number">6</span>         &#125;  
+ <span class="hljs-number">7</span>           
+ <span class="hljs-number">8</span>     <span class="hljs-keyword">var</span> result=(<span class="hljs-number">2</span> <span class="hljs-keyword">in</span> obj);      
+ <span class="hljs-number">9</span>     <span class="hljs-keyword">var</span> result1=(<span class="hljs-string">"j"</span> <span class="hljs-keyword">in</span> obj);  
+<span class="hljs-number">10</span>       
+<span class="hljs-number">11</span>     <span class="hljs-built_in">document</span>.write(result)+<span class="hljs-string">"&lt;br/&gt;"</span>;  
+<span class="hljs-number">12</span>     <span class="hljs-built_in">document</span>.write(result1)+<span class="hljs-string">"&lt;br/&gt;"</span>;</code></pre></p>
+<p>输出为：<br><pre><code class="hljs javascript"><span class="hljs-number">1</span> <span class="hljs-literal">false</span>  
+<span class="hljs-number">2</span> <span class="hljs-literal">true</span></code></pre></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/前端/">前端</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/前端/">前端</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/07/跨浏览器之封装ajax/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">跨浏览器之封装ajax</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/07/jquery对象和js对象的转化/">
+                        <span class="hidden-mobile">jquery对象和js对象的转化</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "pMu6qdvVs0oIKPDGQ6Rh9uV0-gzGzoHsz",
+          app_key: "LyUkwvTfVqFOAXak26nu6HTF",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: true,
+          serverURLs: "",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" rel="nofollow noopener">comments
+      powered by Valine.</a></noscript>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+  <div class="col-lg-7 mx-auto nopadding-md">
+    <div class="container custom post-content mx-auto">
+      <img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">
+    </div>
+  </div>
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- LeanCloud 统计PV -->
+        <span id="leancloud-site-pv-container" style="display: none">
+            总访问量 
+            <span id="leancloud-site-pv"></span>
+             次
+          </span>
+      
+      
+        <!-- LeanCloud 统计UV -->
+        <span id="leancloud-site-uv-container" style="display: none">
+            总访客数 
+            <span id="leancloud-site-uv"></span>
+             人
+          </span>
+      
+
+    
+  </div>
+
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script src="/js/debouncer.js"></script>
+<script src="/js/main.js"></script>
+
+<!-- Plugins -->
+
+
+  
+    
+      <script src="/js/lazyload.js"></script>
+    
+  
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+  <script src="/js/clipboard-use.js"></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <script src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js"></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "for in 和 in 的用法&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 50,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js"></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "§"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js"></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      searchFunc(path, 'local-search-input', 'local-search-result');
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+  
+
+  
+    <!-- MathJax -->
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        options: {
+          renderActions: {
+            findScript: [10, doc => {
+              document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+                const display = !!node.type.match(/; *mode=display/);
+                const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+                const text = document.createTextNode('');
+                node.parentNode.replaceChild(text, node);
+                math.start = { node: text, delim: '', n: 0 };
+                math.end = { node: text, delim: '', n: 0 };
+                doc.math.push(math);
+              });
+            }, '', false],
+            insertedScript: [200, () => {
+              document.querySelectorAll('mjx-container').forEach(node => {
+                let target = node.parentNode;
+                if (target.nodeName.toLowerCase() === 'li') {
+                  target.parentNode.classList.add('has-jax');
+                }
+              });
+            }, '', false]
+          }
+        }
+      };
+    </script>
+
+    <script async src="https://cdn.staticfile.org/mathjax/3.0.5/es5/tex-svg.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.staticfile.org/mermaid/8.5.0/mermaid.min.js"></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>
