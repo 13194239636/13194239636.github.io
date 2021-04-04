@@ -213,13 +213,13 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：5 个月前
+                  本文最后更新于：10 分钟前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
               <h1 id="西瓜书-第一章-绪论"><a href="#西瓜书-第一章-绪论" class="headerlink" title="西瓜书-第一章 绪论"></a>西瓜书-第一章 绪论</h1><p>什么是机器学习，在绪论中给了一段日常生活中的描述：</p>
-<p><img src="西瓜书-第一章 绪论\image-20201009161919081.png" srcset="/img/loading.gif" alt="image-20201009161919081"></p>
+<p><img src="image-20201009161919081.png" srcset="/img/loading.gif" alt="image-20201009161919081"></p>
 <p>这里给了两个类似机器学习的情况：</p>
 <p>1.为什么看见微雨、细风、晚霞就可以知道明天又是一个好天气呢？</p>
 <p>2.为什么看见根蒂蜷缩、声音浊响的青绿色西瓜就知道是个好瓜呢？</p>
@@ -240,17 +240,17 @@
 <h2 id="假设空间"><a href="#假设空间" class="headerlink" title="假设空间"></a>假设空间</h2><p><strong>归纳</strong>：从特殊到一般的泛化过程。广义的归纳学习相当于从样例中学习，而狭义的归纳学习则要求从训练数据中学的概念，亦称为<strong>概念学习或概念形成</strong></p>
 <p><strong>演绎</strong>：从一般到特殊的特化过程。</p>
 <p>学习的过程可以看作为在一个所有假设组成的空间中进行搜索的过程，搜索目标是找到与训练集匹配的假设。训练集如下所示：</p>
-<p><img src="西瓜书-第一章 绪论\image-20201009165307068.png" srcset="/img/loading.gif" alt="image-20201009165307068"></p>
+<p><img src="image-20201009165307068.png" srcset="/img/loading.gif" alt="image-20201009165307068"></p>
 <p>假设的表示一旦确定，假设空间及其规模大小就确定了。例如：</p>
-<p><img src="西瓜书-第一章 绪论\image-20201009164643342.png" srcset="/img/loading.gif" alt="image-20201009164643342"></p>
+<p><img src="image-20201009164643342.png" srcset="/img/loading.gif" alt="image-20201009164643342"></p>
 <p>当色泽有3种取值，根蒂有2种取值，敲声有2种取值。同时可用“*”表示不关系这种属性的取值。那么算上不存在这个假设的话，就有  4×3×3+1=37的大小的假设空间：</p>
-<p><img src="西瓜书-第一章 绪论\image-20201009164938693.png" srcset="/img/loading.gif" alt="image-20201009164938693"></p>
-<p>但需要注意的是，由于训练样本是有限的，那么可能存在多个假设与训练集一致，即存在一个与训练集一致的<strong>假设集合</strong>，称之为<strong>版本空间</strong>。例如，与上面的训练集所对应的版本空间如下图所示：<img src="F:\markdown\西瓜书-第一章 绪论\image-20201009165408676.png" srcset="/img/loading.gif" alt="image-20201009165408676"></p>
+<p><img src="image-20201009164938693.png" srcset="/img/loading.gif" alt="image-20201009164938693"></p>
+<p>但需要注意的是，由于训练样本是有限的，那么可能存在多个假设与训练集一致，即存在一个与训练集一致的<strong>假设集合</strong>，称之为<strong>版本空间</strong>。例如，与上面的训练集所对应的版本空间如下图所示：<img src="image-20201009165408676.png" srcset="/img/loading.gif" alt="image-20201009165408676"></p>
 <h2 id="归纳偏好"><a href="#归纳偏好" class="headerlink" title="归纳偏好"></a>归纳偏好</h2><p>机器学习算法在学习过程中对某种类型假设的偏好称为<strong>归纳偏好</strong>，或简称<strong>偏好</strong>。任何一个有效的机器学习算法必然有其归纳偏好，否则它将被假设空间中看似在训练集上“等效”的假设所迷惑，而无法产生确定的学习结果。</p>
 <p>例如，为了符合下图中黑色点的输出，有两个模型（A和B）可用，但，若认为相似的样本应有相似的输出，则对应的学习算法可能偏好比较平滑的曲线A而不是比较崎岖的曲线B。</p>
-<p><img src="西瓜书-第一章 绪论\image-20201009170615645.png" srcset="/img/loading.gif" alt="image-20201009170615645"></p>
+<p><img src="image-20201009170615645.png" srcset="/img/loading.gif" alt="image-20201009170615645"></p>
 <p>总而言之，归纳偏好相当于一种<strong>启发式或价值观</strong>。但，书中下面这段画，是我读到的一个疑惑，这里我将文中的文字放出来：</p>
-<p><img src="西瓜书-第一章 绪论\image-20201009170957775.png" srcset="/img/loading.gif" alt="image-20201009170957775"></p>
+<p><img src="image-20201009170957775.png" srcset="/img/loading.gif" alt="image-20201009170957775"></p>
 <p><strong>文中此段内容阐述了对于“没有免费的午餐定理”（NFL定理）而言，脱离具体问题，空泛地谈论“什么学习算法更好”毫无意义，因为若考虑所有潜在的问题，则所有算法都一样好。要谈论算法的相对优劣，必须要针对具体的学习问题，学习算法的自身归纳偏好与问题是否相配，往往会起到决定性作用。</strong></p>
 
             </div>
@@ -282,9 +282,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/03/07/HTML5-JSON的方法实现对象COPY/">
+                      <a href="/2020/10/23/西瓜书-第二章 模型评估与选择/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">HTML5-JSON的方法实现对象COPY</span>
+                        <span class="hidden-mobile">西瓜书-第二章 模型评估与选择</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -292,8 +292,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/23/西瓜书-第二章 模型评估与选择/">
-                        <span class="hidden-mobile">西瓜书-第二章 模型评估与选择</span>
+                      <a href="/2020/10/23/Efficient and self-adaptive in-situ learning in multilayer memristor neural networks/">
+                        <span class="hidden-mobile">Efficient and self-adaptive in-situ learning in multilayer memristor neural networks</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

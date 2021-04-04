@@ -213,12 +213,12 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：2 小时前
+                  本文最后更新于：12 分钟前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
-              <h1 id="leetcode题目：旋转数组"><a href="#leetcode题目：旋转数组" class="headerlink" title="leetcode题目：旋转数组"></a>leetcode题目：旋转数组</h1><p>题目描述：<br>给定一个数组，例如[1,2,3,4,5,6,7]，同时给定一个K值，表示数组的向右旋转程度，例如当k等于3时，旋转一次为：[7,1,2,3,4,5,6],旋转第二次为：[6,7,1,2,3,4,5],第三次也就是结果输出为：[5,6,7,1,2,3,4]。<br><a id="more"></a><br><img src="旋转数组/img.png" srcset="/img/loading.gif" alt="image"></p>
+              <h1 id="leetcode题目：旋转数组"><a href="#leetcode题目：旋转数组" class="headerlink" title="leetcode题目：旋转数组"></a>leetcode题目：旋转数组</h1><p>题目描述：<br>给定一个数组，例如[1,2,3,4,5,6,7]，同时给定一个K值，表示数组的向右旋转程度，例如当k等于3时，旋转一次为：[7,1,2,3,4,5,6],旋转第二次为：[6,7,1,2,3,4,5],第三次也就是结果输出为：[5,6,7,1,2,3,4]。<br><a id="more"></a><br><img src="img.png" srcset="/img/loading.gif" alt="image"></p>
 <h2 id="解法一：暴力解法"><a href="#解法一：暴力解法" class="headerlink" title="解法一：暴力解法"></a>解法一：暴力解法</h2><p>双重循环将数组内的元素进行移位：先将数组最左边的元素取出来，然后其他元素右移，再将取出来的元素放置在数组的第一个位置，循环K次即可。<br><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rotate</span><span class="hljs-params">(self, nums: List[int], k: int)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
         <span class="hljs-string">"""
@@ -261,7 +261,8 @@
             nums.append(nums.pop(<span class="hljs-number">0</span>));
             i+=<span class="hljs-number">1</span>;</code></pre></p>
 <p>时间复杂度：O(N)<br>空间复杂度：O(1)</p>
-<h2 id="解法五：环状替换"><a href="#解法五：环状替换" class="headerlink" title="解法五：环状替换"></a>解法五：环状替换</h2><p>这是比较难理解的一个方法，首先，如果我们用之前的元素直接去替换它所应该最终在的位置上的元素（原位置+K%N就是它最终应该所在的位置），必然导致元素的丢失，所以，需要用一个变量(temp)先保存起来被替换的元素，继续这个过程N次即可，因为每个元素都要换位置，所以需要这个过程N次。但是有一个问题会出现，当N%K==0的时候，其中K=K%N(如果K&gt;N,实际上还是相当于K%N,因为移动N+1个位置就相当于移动1个位置)循环替换多次后，一定会产生再次回到最初开始的位置上的问题，程序就进入死循环。此时，我们需要做的是将从一开始的元素的下一个元素开始继续这个过程。<br>详细的说就是一开始从i=0开始替换，并且保存每次被替换的元素，便于下次替换时候用上次被替换的元素去替换它应该替换的元素。i=0所在的元素替换i+k%N所在的元素，并且再次保存被替换的元素的值，此时替换的都是i%K==0的元素，并且因为每隔K替换一次，所以已经有N/K个元素确定位置了，当回到最初开始的元素时，就从开始的元素的下一个继续进行这个过程，此时就是i%k==1的元素在进行替换工作了，直到回到i%k==0的元素位置上，此时i==k,那么一共确定位置的就有k乘以N/K个元素了，刚刚好N个元素，所有位置都在指定的位置上。<br>过程如下，红线表示第一个阶段，i%k==0，绿线表示第二个阶段，i%k==1，两个阶段，每隔阶段(N=6/K=2)=3，2乘以3=6.所有元素归位<br><img src="旋转数组/image.png" srcset="/img/loading.gif" alt="image"><br>代码如下：<br><pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
+<h2 id="解法五：环状替换"><a href="#解法五：环状替换" class="headerlink" title="解法五：环状替换"></a>解法五：环状替换</h2><p>这是比较难理解的一个方法，首先，如果我们用之前的元素直接去替换它所应该最终在的位置上的元素（原位置+K%N就是它最终应该所在的位置），必然导致元素的丢失，所以，需要用一个变量(temp)先保存起来被替换的元素，继续这个过程N次即可，因为每个元素都要换位置，所以需要这个过程N次。但是有一个问题会出现，当N%K==0的时候，其中K=K%N(如果K&gt;N,实际上还是相当于K%N,因为移动N+1个位置就相当于移动1个位置)循环替换多次后，一定会产生再次回到最初开始的位置上的问题，程序就进入死循环。此时，我们需要做的是将从一开始的元素的下一个元素开始继续这个过程。<br>详细的说就是一开始从i=0开始替换，并且保存每次被替换的元素，便于下次替换时候用上次被替换的元素去替换它应该替换的元素。i=0所在的元素替换i+k%N所在的元素，并且再次保存被替换的元素的值，此时替换的都是i%K==0的元素，并且因为每隔K替换一次，所以已经有N/K个元素确定位置了，当回到最初开始的元素时，就从开始的元素的下一个继续进行这个过程，此时就是i%k==1的元素在进行替换工作了，直到回到i%k==0的元素位置上，此时i==k,那么一共确定位置的就有k乘以N/K个元素了，刚刚好N个元素，所有位置都在指定的位置上。<br>过程如下，红线表示第一个阶段，i%k==0，绿线表示第二个阶段，i%k==1，两个阶段，每隔阶段(N=6/K=2)=3，2乘以3=6.所有元素归位<br><img src="image.png" srcset="/img/loading.gif" alt="image"><br>代码如下：</p>
+<pre><code class="hljs python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span>:</span>
     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rotate</span><span class="hljs-params">(self, nums: List[int], k: int)</span> -&gt; <span class="hljs-keyword">None</span>:</span>
         count=<span class="hljs-number">0</span>
         staIndex=<span class="hljs-number">0</span>;<span class="hljs-comment">#起点</span>
@@ -277,7 +278,7 @@
             nums.pop(curIndex);<span class="hljs-comment">#插入本阶段最后数值后继续下一个阶段直到count=len（nums）即是所有数都放置在最终位置</span>
             nums.insert(curIndex,preValue);
             count+=<span class="hljs-number">1</span>;
-            staIndex+=<span class="hljs-number">1</span>;</code></pre></p>
+            staIndex+=<span class="hljs-number">1</span>;</code></pre>
 <p>时间复杂度：O(N)<br>空间复杂度：O(1)</p>
 
             </div>
