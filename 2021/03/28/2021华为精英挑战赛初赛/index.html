@@ -213,17 +213,17 @@
             
               <p class="note note-info">
                 
-                  本文最后更新于：7 分钟前
+                  本文最后更新于：2 小时前
                 
               </p>
             
             <div class="markdown-body" id="post-body">
               <p>2021华为精英挑战赛初赛题目,思想以及代码总结（仅仅为baseline）<br><a id="more"></a></p>
 <h3 id="初赛题目解析"><a href="#初赛题目解析" class="headerlink" title="初赛题目解析"></a>初赛题目解析</h3><p>秉着化繁为简的想法，简单的阐述题目要求:</p>
-<h4 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h4><p>我们具有多台可供购买的服务器，每台服务器具有自己的CPU核数，内存大小，硬件成本和每天能耗成本，同时每台服务器具有双节点A和B，每个节点分担服务器资源的一半:<br><img src="//yoursite.com/2021/03/28/2021华为精英挑战赛初赛/1.png" srcset="/img/loading.gif" alt="image-20210328232942388"></p>
+<h4 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h4><p>我们具有多台可供购买的服务器，每台服务器具有自己的CPU核数，内存大小，硬件成本和每天能耗成本，同时每台服务器具有双节点A和B，每个节点分担服务器资源的一半:<br><img src="1.png" srcset="/img/loading.gif" alt="image-20210328232942388"></p>
 <p>以NV603为例，其CPU核数，内存大小，硬件成本和每天能耗成本分别为92C，324G，53800，500。其中，硬件成本只是在购买该台服务器时候需要花费，而每天能耗成本则在服务器运行当天存在，换言之，若服务器当天没有被部署，则不需要计算每天能耗成本。每台服务器具有两个节点，每个节点分别具有该台服务器一半的资源：A具有CPU核数46C，内存大小162G.</p>
 <h4 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h4><p>此外，我们还提供了可供购买的虚拟机数台，每台虚拟机具有所需要的CPU核数，内存大小和是否双节点部署:</p>
-<p><img src="//yoursite.com/2021/03/28/2021华为精英挑战赛初赛/2.png" srcset="/img/loading.gif" alt="image-20210328233518509"></p>
+<p><img src="2.png" srcset="/img/loading.gif" alt="image-20210328233518509"></p>
 <p>服务器所剩余的CPU核数核内存大小足够的情况下，该台虚拟机才能部署进该服务器。如果该台虚拟机是单节点部署，那么该台虚拟机将部署在服务器的A或者B节点，也将占据A或者B节点的资源。反之，如果虚拟机是双节点部署，那么该台虚拟机将占据服务器A和B节点的一半资源。例如C3.8xlarge.2, 所部署的服务器的A和B节点将分别提供一半的资源，亦即，A和B节点分别提供16C和32G资源。</p>
 <h4 id="资源调度和分配"><a href="#资源调度和分配" class="headerlink" title="资源调度和分配"></a>资源调度和分配</h4><ol>
 <li>容量约束： 服务器可以用来容纳用户的虚拟机，但是服务器上的任意一个节点(A 和 B)上的资源负载(CPU 和内存)均不能超过其容量上限。</li>
@@ -233,7 +233,7 @@
 <li>虚拟机迁移： 在完成扩容后，在处理每一天的新请求之前，你还可以对当前存量虚拟机进行一次迁移，即把虚拟机从一台服务器迁移至另一台服务器。对于单节点部署的虚拟机，将其从一台服务器的 A 节点迁移至 B 节点(或反之)也是允许的。迁移的目的服务器和节点必须有足够的资源容纳所迁移的虚拟机。迁移的虚拟机总量不超过当前存量虚拟机数量的千分之五。即假设当前有 n 台存量虚拟<br>机，每天你可以迁移的虚拟机总量不得超过 5n/1000 向下取整。</li>
 <li>部署虚拟机： 在完成扩容和迁移之后，你需要按顺序处理当天所有的新请求。对于每一个创建虚拟机的新请求，你要为虚拟机指定一台服务器进行部署。若虚拟机是单节点部署的，你还需要指明部署在服务器的 A 节点还是 B 节点。处理请求的过程中，任意一台服务器上每个节点容纳的虚拟机资源总和都不能超出节点本身的资源容量（指 CPU 和内存两个维度）。  </li>
 </ol>
-<h4 id="输入示例："><a href="#输入示例：" class="headerlink" title="输入示例："></a>输入示例：</h4><p><img src="//yoursite.com/2021/03/28/2021华为精英挑战赛初赛/3.png" srcset="/img/loading.gif" alt="image-20210328234119983"></p>
+<h4 id="输入示例："><a href="#输入示例：" class="headerlink" title="输入示例："></a>输入示例：</h4><p><img src="3.png" srcset="/img/loading.gif" alt="image-20210328234119983"></p>
 <ul>
 <li>第一行代表输入的可供购买的服务器的行数N</li>
 <li>接近着的N行代表N种可供购买的服务器类型及其规格（服务器型号，CPU核数，内存大小，硬件成本，每日成本）</li>
@@ -246,7 +246,7 @@
 <li>L条请求</li>
 <li>…..</li>
 </ul>
-<h4 id="输出示例："><a href="#输出示例：" class="headerlink" title="输出示例："></a>输出示例：</h4><p><img src="//yoursite.com/2021/03/28/2021华为精英挑战赛初赛/4.png" srcset="/img/loading.gif" alt="image-20210328234204127"></p>
+<h4 id="输出示例："><a href="#输出示例：" class="headerlink" title="输出示例："></a>输出示例：</h4><p><img src="4.png" srcset="/img/loading.gif" alt="image-20210328234204127"></p>
 <ul>
 <li>首先第一行输出(purchase, Q)，其中 Q 是一个整数表示你需要扩容购买多少种类型的服务器。 Q 不能为负数且不能大于 N。  </li>
 <li>接下来 Q 行，每行的格式为： (服务器型号, 购买数量)。 例如(NV603, 2)表示扩容购买两台 NV603 服务器。购买数量必须为正整数，在整个用例中，你所购买的服务器总量不能超过 105。  </li>
@@ -256,12 +256,12 @@
 <li>接下来按输入中请求的顺序，输出对于当前这一天的每一个创建请求，该虚拟机部署的服务器 ID，格式为(服务器 ID)或者(服务器 ID, 部署节点)。对于双节点部  署的虚拟机，你只需要输出其部署的服务器 ID，对于单节点部署的虚拟机，你还需要输出部署的节点(A 或 B)。  </li>
 </ul>
 <h3 id="测试数据样例"><a href="#测试数据样例" class="headerlink" title="测试数据样例"></a>测试数据样例</h3><p>服务器数据：</p>
-<p><img src="//yoursite.com/2021/03/28/2021华为精英挑战赛初赛/6.png" srcset="/img/loading.gif" alt="image-20210329122644763"></p>
+<p><img src="2021华为精英挑战赛初赛\6.png" srcset="/img/loading.gif" alt="image-20210329122644763"></p>
 <p>虚拟机数据：</p>
-<p><img src="//yoursite.com/2021/03/28/2021华为精英挑战赛初赛/7.png" srcset="/img/loading.gif" alt="image-20210329122707185"></p>
+<p><img src="7.png" srcset="/img/loading.gif" alt="image-20210329122707185"></p>
 <p>请求数据：</p>
-<p><img src="//yoursite.com/2021/03/28/2021华为精英挑战赛初赛/8.png" srcset="/img/loading.gif" alt="image-20210329122747042"></p>
-<p><img src="//yoursite.com/2021/03/28/2021华为精英挑战赛初赛/9.png" srcset="/img/loading.gif" alt="image-20210329122808587"></p>
+<p><img src="8.png" srcset="/img/loading.gif" alt="image-20210329122747042"></p>
+<p><img src="9.png" srcset="/img/loading.gif" alt="image-20210329122808587"></p>
 <h3 id="实现思想"><a href="#实现思想" class="headerlink" title="实现思想"></a>实现思想</h3><p>本次比赛的baseline主要采用贪心的思想，尽可能选取能满足当天需求的性价比高的服务器。因此，需要对可供购买的服务器按照性价比进行排序。</p>
 <h4 id="数据输入"><a href="#数据输入" class="headerlink" title="数据输入"></a>数据输入</h4><p>数据输入结构体：</p>
 <pre><code class="hljs c++"><span class="hljs-comment">//预定义服务器数量，虚拟机数量，请求天数，每天最大请求数量</span>
@@ -913,7 +913,7 @@ VM vms[VMSNUM];
     <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
 &#125;</code></pre>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>​    由于第一次参加这种比赛，期间发生了很多由于前期考虑不周导致的问题，以及一些突发状况，最后虽然提交成功，但是由于仅仅是个baseline，性能并不好。总体来说，对于自己的编码能力的确有了较大的提高。</p>
-<p><img src="//yoursite.com/2021/03/28/2021华为精英挑战赛初赛/blog\source\_posts\2021华为精英挑战赛初赛\5" srcset="/img/loading.gif" alt="image-20210329122252004"></p>
+<p><img src="E:\blog\source\_posts\2021华为精英挑战赛初赛\5" srcset="/img/loading.gif" alt="image-20210329122252004"></p>
 
             </div>
             <hr>
